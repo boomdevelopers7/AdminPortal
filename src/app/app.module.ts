@@ -6,16 +6,26 @@ import { LoginComponent } from './adminPortal/admin-login/admin-login.component'
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import {MatTableModule, MatSortModule} from '@angular/material';
+
+import { DataSource } from '@angular/cdk/table';
+
+
+import { UnitMasterComponent } from './itemMaster/unit-master/unit-master.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    UnitMasterComponent
   ],
   imports: [
     HttpModule,
+    
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+   
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
