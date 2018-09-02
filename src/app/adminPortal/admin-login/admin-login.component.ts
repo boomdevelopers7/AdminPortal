@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
-import { adminService } from "src/app/shared/admin.service";
-import { admin } from "src/app/shared/admin.modal";
+import { adminService } from '../shared/services/admin.service';
+import { admin } from '../shared/services/admin.modal';
 
 @Component({
   selector: 'app-admin-login',
