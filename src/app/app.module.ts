@@ -8,8 +8,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
-
-import { UnitMasterComponent } from './adminPortal/itemMaster/unit-master/unit-master.component';
+import { UnitMasterComponent } from './adminPortal/Master/unit-master/unit-master.component';
 import { HeaderComponent } from './adminportal/components/header/header.component';
 import { FooterComponent } from './adminportal/components/footer/footer.component';
 import { MenuComponent } from './adminportal/components/menu/menu.component';
