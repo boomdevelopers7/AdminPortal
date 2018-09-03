@@ -3,8 +3,8 @@ import { Http, Response } from '@angular/http';
 import { MatSort, MatSortable, MatTableDataSource, MatPaginator } from '@angular/material';
 
 // import { MatTableDataSource, MatSort } from '@angular/material';
-import { UnitMasterService } from "src/app/shared/unitMasterService/unit-master.service";
 import { Unit } from "src/app/adminPortal/shared/modal/unit";
+import { UnitMasterService } from '../../shared/services/unit-master.service';
 
 export interface PeriodicElement {
   name: string;
