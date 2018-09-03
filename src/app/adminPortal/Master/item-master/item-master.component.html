@@ -1,0 +1,27 @@
+<div>
+  <mat-table [dataSource] = "dataSource">
+    <ng-container matColumnDef = "itemId">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef = " let item">{{item.itemId}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef = "itemName">
+      <mat-header-cell *matHeaderCellDef>Item Name</mat-header-cell>
+      <mat-cell *matCellDef = " let item">{{item.itemName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef = "itemQuantity">
+      <mat-header-cell *matHeaderCellDef>Item Quantity</mat-header-cell>
+      <mat-cell *matCellDef = " let item">{{item.itemQuantity}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef = "itemUnit">
+      <mat-header-cell *matHeaderCellDef>Item Unit</mat-header-cell>
+      <mat-cell *matCellDef = " let item">{{item.itemUnit}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef = "itemPrise">
+      <mat-header-cell *matHeaderCellDef>Item Prise</mat-header-cell>
+      <mat-cell *matCellDef = " let item">{{item.itemPrise}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef = "displayedColumns"></mat-header-row>
+    <mat-row *matRowDef = "let row; columns: displayedColumns;"></mat-row>
+  </mat-table> 
+
+</div>
