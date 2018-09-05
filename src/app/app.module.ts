@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './adminPortal/admin-login/admin-login.component';
 import { FormsModule }   from '@angular/forms';
@@ -15,8 +14,10 @@ import { SettingComponent } from './adminportal/dashboard/setting/setting.compon
 import {MatTableModule, MatSortModule, MatPaginatorModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MenuComponent } from './adminPortal/Dashboard/Sidebar/menu.component';
+import { ItemMasterComponent } from './adminPortal/Master/item-master/item-master.component';
 const appRoutes: Routes=[
   { path: 'app-unit-master', component: UnitMasterComponent },
+  { path: 'app-item-master', component: ItemMasterComponent },
   { path:'', redirectTo: 'app-menu', pathMatch: 'full' }
 ]
 
@@ -26,6 +27,7 @@ const appRoutes: Routes=[
     AppComponent,
     LoginComponent,
     UnitMasterComponent,
+    ItemMasterComponent,
     HeaderComponent,
     FooterComponent,
     MenuComponent,

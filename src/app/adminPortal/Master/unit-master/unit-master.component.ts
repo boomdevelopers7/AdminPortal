@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 import { MatSort, MatSortable, MatTableDataSource, MatPaginator } from '@angular/material';
 
 // import { MatTableDataSource, MatSort } from '@angular/material';
-import { Unit } from "src/app/adminPortal/shared/modal/unit";
+import { Unit } from "src/app/adminPortal/shared/model/master/unit";
 import { UnitMasterService } from '../../shared/services/unit-master.service';
 
 

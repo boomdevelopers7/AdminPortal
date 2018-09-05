@@ -1,11 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ItemMasterService } from '../../shared/services/master/item-master.service';
 
-import { ItemService } from '../../shared/services/master/item.service';
-import { Observable } from 'rxjs';
-import { DataSource } from '@angular/cdk/collections';
-import { Item } from  '../../shared/model/master/item.model';
-
-
+import { ItemMaster } from '../../shared/model/master/item-master.model';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-item-master',
@@ -13,25 +10,19 @@ import { Item } from  '../../shared/model/master/item.model';
   styleUrls: ['./item-master.component.css']
 })
 export class ItemMasterComponent implements OnInit {
+
+  dataSource;// = new ItemMasterDataSource(this.itemmasterService); 
   
-  dataSource = new ItemDataSource(this.itemService);
-  displayedColumns = ['itemId','itemName','itemQuantity','itemUnit','itemPrise'];
+  displayedColumns = ['id','name', 'quantity','unit','prise'];
 
-
-  constructor(private itemService: ItemService) { }
+  constructor(private itemmasterservice: ItemMasterService) { }
 
   ngOnInit() {
+this.itemmasterservice.getItemMaster().subscribe(result=>{
+  this.dataSource=new MatTableDataSource(result)});
   }
+  
 
 }
 
-
-export class ItemDataSource extends DataSource<any>{
-  constructor(private itemService: ItemService ) {
-    super();
-  }
-  connect ():Observable <Item[]>{
-    return this.itemService.getItem();
-  }
-  disconnect() {}
-}
+ 

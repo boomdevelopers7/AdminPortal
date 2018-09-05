@@ -1,27 +1,36 @@
-<div>
-  <mat-table [dataSource] = "dataSource">
-    <ng-container matColumnDef = "itemId">
-      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-      <mat-cell *matCellDef = " let item">{{item.itemId}}</mat-cell>
+  <mat-table class="item-table mat-elevation-z8" [dataSource] = "dataSource"  matSort class="mat-elevation-z8">
+    
+    <ng-container matColumnDef = "id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Item ID</mat-header-cell>
+      <mat-cell *matCellDef = " let item">{{item.id}}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef = "itemName">
-      <mat-header-cell *matHeaderCellDef>Item Name</mat-header-cell>
-      <mat-cell *matCellDef = " let item">{{item.itemName}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef = "itemQuantity">
-      <mat-header-cell *matHeaderCellDef>Item Quantity</mat-header-cell>
-      <mat-cell *matCellDef = " let item">{{item.itemQuantity}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef = "itemUnit">
-      <mat-header-cell *matHeaderCellDef>Item Unit</mat-header-cell>
-      <mat-cell *matCellDef = " let item">{{item.itemUnit}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef = "itemPrise">
-      <mat-header-cell *matHeaderCellDef>Item Prise</mat-header-cell>
-      <mat-cell *matCellDef = " let item">{{item.itemPrise}}</mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef = "displayedColumns"></mat-header-row>
-    <mat-row *matRowDef = "let row; columns: displayedColumns;"></mat-row>
-  </mat-table> 
 
-</div>
+    <ng-container matColumnDef = "name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Item Name</mat-header-cell>
+        <mat-cell class="itemName-cell" *matCellDef=" let item">{{item.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef = "quantity">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Item Quantity</mat-header-cell>
+      <mat-cell *matCellDef = " let item">{{item.quantity}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef = "unit">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Item Unit</mat-header-cell>
+      <mat-cell *matCellDef = " let item">{{item.unit}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef = "prise">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Item Prise</mat-header-cell>
+      <mat-cell *matCellDef = " let item">{{item.prise}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef = "displayedColumns"></mat-header-row>
+    <mat-row *matRowDef = "let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+
+<mat-paginator [length]="100"
+              [pageSize]="8"
+              [pageSizeOptions]="[3,5, 10, 25, 100]">
+</mat-paginator>
+ 
