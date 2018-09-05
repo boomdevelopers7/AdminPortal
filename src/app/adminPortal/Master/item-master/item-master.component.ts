@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ItemMasterService } from '../../shared/services/master/item-master.service';
 
-import { ItemMaster } from '../../shared/model/master/item-master.model';
+import { ItemMaster } from '../../shared/model/master/item.model';
 import { MatTableDataSource } from '@angular/material';
 
 @Component({
@@ -13,7 +13,7 @@ export class ItemMasterComponent implements OnInit {
 
   dataSource;// = new ItemMasterDataSource(this.itemmasterService); 
   
-  displayedColumns = ['id','name', 'quantity','unit','prise'];
+  displayedColumns = ['itemId','itemName', 'itemQuantity','unit','itemPrice'];
 
   constructor(private itemmasterservice: ItemMasterService) { }
 
