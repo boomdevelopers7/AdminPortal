@@ -1,7 +1,7 @@
   
 <button mat-riased-button  (click)="onAddDialog()" type="submit" class="btn btn-success">Add</button>
   
-  
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   
   <mat-table class="item-table mat-elevation-z8" [dataSource] = "dataSource"  matSort class="mat-elevation-z8">
     
@@ -36,6 +36,7 @@
 
 <mat-paginator [length]="100"
               [pageSize]="8"
-              [pageSizeOptions]="[3,5, 10, 25, 100]">
+              [pageSizeOptions]="[3,5, 10, 25, 100]"
+              showFirstLastButtons>
 </mat-paginator>
- 
+  
