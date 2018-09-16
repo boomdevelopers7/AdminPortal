@@ -7,15 +7,18 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 //import  'rxjs/add/operator/toPromise';
-
+ 
 import { UnitMasterComponent } from './adminPortal/Master/unit-master/unit-master.component';
 import { HeaderComponent } from './adminportal/dashboard/header/header.component';
 import { FooterComponent } from './adminportal/dashboard/footer/footer.component';
 import { SettingComponent } from './adminportal/dashboard/setting/setting.component';
-import {MatTableModule,MatCardModule, MatSortModule, MatPaginatorModule} from '@angular/material';
+import {MatTableModule,MatCardModule, MatSortModule, MatPaginatorModule, MatDialogModule, MatButtonModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MenuComponent } from './adminPortal/Dashboard/Sidebar/menu.component';
 import { ItemMasterComponent } from './adminPortal/Master/item-master/item-master.component';
+import { AddItemComponent } from './adminPortal/Master/item-master/add-item/add-item.component';
+import { UpdateItemComponent } from './adminPortal/Master/item-master/update-item/update-item.component';
+import { DeleteItemComponent } from './adminPortal/Master/item-master/delete-item/delete-item.component';
 const appRoutes: Routes=[
   { path: 'app-unit-master', component: UnitMasterComponent },
   { path: 'app-item-master', component: ItemMasterComponent },
@@ -35,7 +38,10 @@ const appRoutes: Routes=[
     MenuComponent,
     SettingComponent,
     //UpdateUnitDataComponent,
-    UnitMasterComponent
+    UnitMasterComponent,
+    AddItemComponent,
+    UpdateItemComponent,
+    DeleteItemComponent
   ],
   imports: [
     HttpModule,    
@@ -46,8 +52,16 @@ const appRoutes: Routes=[
 BrowserAnimationsModule,
 MatPaginatorModule,
 MatCardModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MatButtonModule,
+    MatCardModule,
+    MatDialogModule
     
+  ],
+  entryComponents:[
+    AddItemComponent,
+    UpdateItemComponent,
+    DeleteItemComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
