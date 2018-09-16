@@ -9,7 +9,7 @@ import { Unit } from '../../model/master/unit.model';
   providedIn: 'root'
 })
 export class UnitService {
-
+  dataList:Unit[];
 selectUnit : Unit; 
   constructor(private http : HttpClient) { }
 
@@ -22,5 +22,9 @@ selectUnit : Unit;
           return this.http.post('http://localhost:64597/api/unitMaster', body);
         }
 
-  }
 
+        
+  getUnitDataList():Observable<Unit[]>{
+    return this.http.get<Unit[]>('http://localhost:64597/api/unitMaster');
+  }
+}

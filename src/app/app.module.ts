@@ -19,6 +19,9 @@ import { ItemMasterComponent } from './adminPortal/Master/item-master/item-maste
 import { AddItemComponent } from './adminPortal/Master/item-master/add-item/add-item.component';
 import { UpdateItemComponent } from './adminPortal/Master/item-master/update-item/update-item.component';
 import { DeleteItemComponent } from './adminPortal/Master/item-master/delete-item/delete-item.component';
+import { AddUnitDataComponent } from './adminPortal/Master/unit-master/add-unit-data/add-unit-data.component';
+import { UpdateUnitDataComponent } from './adminPortal/Master/unit-master/update-unit-data/update-unit-data.component';
+import { DeleteUnitDataComponent } from './adminPortal/Master/unit-master/delete-unit-data/delete-unit-data.component';
 const appRoutes: Routes=[
   { path: 'app-unit-master', component: UnitMasterComponent },
   { path: 'app-item-master', component: ItemMasterComponent },
@@ -41,7 +44,10 @@ const appRoutes: Routes=[
     UnitMasterComponent,
     AddItemComponent,
     UpdateItemComponent,
-    DeleteItemComponent
+    DeleteItemComponent,
+    AddUnitDataComponent,
+    UpdateUnitDataComponent,
+    DeleteUnitDataComponent
   ],
   imports: [
     HttpModule,    
@@ -59,9 +65,13 @@ MatCardModule,
     
   ],
   entryComponents:[
+    AddUnitDataComponent,
+    UpdateUnitDataComponent,
+    DeleteUnitDataComponent,
     AddItemComponent,
     UpdateItemComponent,
     DeleteItemComponent
+
   ],
   providers: [],
   bootstrap: [AppComponent]

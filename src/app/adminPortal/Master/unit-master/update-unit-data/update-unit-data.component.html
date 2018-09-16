@@ -1,0 +1,14 @@
+<table class="table table-sm table-hover">
+  <tr *ngFor="let employee of getUnitDataList">
+    <td>
+      {{employee.ID}} 
+    </td>
+    <td>{{employee.unitName}}</td>
+  <td>
+    {{employee.unitDescription}}
+  </td>
+  <td>
+    <a class="btn" (click)="showForEdit(employee)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+  <td><a class="text-danger" (click)="onDelete(employee.ID)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+  </tr>
+  </table>

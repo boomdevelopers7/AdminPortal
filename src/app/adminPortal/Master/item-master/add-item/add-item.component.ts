@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 
 import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-item',
@@ -10,7 +11,7 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 })
 export class AddItemComponent implements OnInit {
 
-  constructor(public thisdialogRef: MatDialogRef< AddItemComponent>, @Inject(MAT_DIALOG_DATA)public data: string) { }
+  constructor(private toastr : ToastrService ,public thisdialogRef: MatDialogRef< AddItemComponent>, @Inject(MAT_DIALOG_DATA)public data: string) { }
 
 
   ngOnInit() {
