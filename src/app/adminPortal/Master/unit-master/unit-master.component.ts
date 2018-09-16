@@ -1,11 +1,7 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { MatSort, MatSortable, MatTableDataSource, MatPaginator } from '@angular/material';
-
-// import { MatTableDataSource, MatSort } from '@angular/material';
-import { Unit } from "src/app/adminPortal/shared/model/master/unit";
-import { UnitMasterService } from '../../shared/services/unit-master.service';
-
+import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
+import { UnitService } from '../../shared/services/master/unit-master.service';
 
 @Component({
   selector: 'app-unit-master',
@@ -14,14 +10,26 @@ import { UnitMasterService } from '../../shared/services/unit-master.service';
 })
 export class UnitMasterComponent implements OnInit {
 
-  dataSource ;
-  displayedColumns: string[] = ['id', 'unitName', 'unitDescription'];
-  constructor(private unitMasterService : UnitMasterService){}
-  ngOnInit() {
-    this.unitMasterService.loadData().subscribe( result => {
-    this.dataSource=new MatTableDataSource(result);
-    }); 
-  }
+  constructor(private unitService : UnitService, private toastr : ToastrService) { }
 
+  ngOnInit() {
+    this.resetForm();
+  }
+resetForm(form? : NgForm){
+  if(form != null)
+  form.reset();
+  this.unitService.selectUnit={
+    ID:null,
+    unitName :'',
+    unitDescription:'',
+  }
 }
-  
+
+onSubmit(form : NgForm){
+  this.unitService.postUnit(form.value)
+  .subscribe(data=>{
+    this.resetForm(form);
+    this.toastr.success('Record insert successfully', 'Unit register');
+  })
+}
+}

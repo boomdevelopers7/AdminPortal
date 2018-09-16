@@ -1,32 +1,24 @@
+<form class="emp-form" #unitForm="ngForm" (ngSubmit)="onSubmit(unitForm)">
+   
+<div class="form-group"> 
+  <div style="text-align:center">
+    <h2 class="jumbotron bg-secondary text-white">Unit Register</h2>
+       </div>
+    <input name="unitName" class="form-control" placeholder="Unit Name" #unitName="ngModel" [(ngModel)]="unitService.selectUnit.unitName" required> 
+    <div class="validation-error" *ngIf="unitName.invalid && unitName.touched">This Field is reuired</div>
+    <input name="unitDescription" class="form-control" placeholder="Description" #unitDescription="ngModel" [(ngModel)]="unitService.selectUnit.unitDescription" required> 
+    <div class="validation-error" *ngIf="unitDescription.invalid && unitDescription.touched">This Field is reuired</div>
 
-  <section class="">
-      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  </div>
 
-          <!-- Position Column -->
-          <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
-            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-          </ng-container>
-        
-          <!-- Name Column -->
-          <ng-container matColumnDef="unitName">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.unitName}} </td>
-          </ng-container>
-        
-          <!-- Weight Column -->
-          <ng-container matColumnDef="unitDescription">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>
-            <td mat-cell *matCellDef="let element"> {{element.unitDescription}} </td>
-          </ng-container>
-        
-         
-        
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-        <mat-paginator [length]="100"
-              [pageSize]="10"
-              [pageSizeOptions]="[5, 10, 25, 100]">
-</mat-paginator>
-      </section>
+
+<div class="row">
+  <div class="col-md-8">
+    <button [disabled]="!unitForm.valid" type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
+  </div>
+  <div class="col-md-4">
+      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(unitForm)">Reset</button>
+    </div>
+</div>
+
+</form>

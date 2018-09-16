@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { ItemMaster } from '../../model/master/item-master.model';
+import { ItemMaster } from '../../model/master/item.model';
 @Injectable({
   providedIn: 'root'
 })

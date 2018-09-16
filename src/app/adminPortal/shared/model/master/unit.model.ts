@@ -1,5 +1,5 @@
 export class Unit{
-    id:number;
+    ID:number;
     unitName:string;
     unitDescription:string;
  }
