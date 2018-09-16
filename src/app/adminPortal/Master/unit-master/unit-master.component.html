@@ -1,24 +1,42 @@
-<form class="emp-form" #unitForm="ngForm" (ngSubmit)="onSubmit(unitForm)">
-   
-<div class="form-group"> 
-  <div style="text-align:center">
-    <h2 class="jumbotron bg-secondary text-white">Unit Register</h2>
-       </div>
-    <input name="unitName" class="form-control" placeholder="Unit Name" #unitName="ngModel" [(ngModel)]="unitService.selectUnit.unitName" required> 
-    <div class="validation-error" *ngIf="unitName.invalid && unitName.touched">This Field is reuired</div>
-    <input name="unitDescription" class="form-control" placeholder="Description" #unitDescription="ngModel" [(ngModel)]="unitService.selectUnit.unitDescription" required> 
-    <div class="validation-error" *ngIf="unitDescription.invalid && unitDescription.touched">This Field is reuired</div>
+  
+<button mat-riased-button  (click)="onAddDialog()" type="submit" class="btn btn-success">Add</button>
+  
+<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 
-  </div>
+<mat-table class="item-table mat-elevation-z8" [dataSource] = "dataSource"  matSort class="mat-elevation-z8">
+  
+  <ng-container matColumnDef = "ID">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Sr.No</mat-header-cell>
+    <mat-cell *matCellDef = " let item">{{item.id}}</mat-cell>
+  </ng-container>
 
+  <ng-container matColumnDef = "unitName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Unit Name</mat-header-cell>
+      <mat-cell class="itemName-cell" *matCellDef=" let item">{{item.unitName}}</mat-cell>
+  </ng-container>
 
-<div class="row">
-  <div class="col-md-8">
-    <button [disabled]="!unitForm.valid" type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
-  </div>
-  <div class="col-md-4">
-      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(unitForm)">Reset</button>
-    </div>
-</div>
+  <ng-container matColumnDef = "unitDescription">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Unit unitDescription</mat-header-cell>
+    <mat-cell *matCellDef = " let item">{{item.unitDescription}}</mat-cell>
+  </ng-container>
 
-</form>
+  <ng-container matColumnDef = "update">
+    <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+    <mat-cell *matCellDef = " let item"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef = "delete">
+    <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+    <mat-cell *matCellDef = " let item"><i class="fa fa-trash" aria-hidden="false"></i></mat-cell>
+  </ng-container>
+
+    <mat-header-row *matHeaderRowDef = "displayedColumns"></mat-header-row>
+  <mat-row *matRowDef = "let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+<mat-paginator [length]="100"
+            [pageSize]="8"
+            [pageSizeOptions]="[3,5, 10, 25, 100]"
+            showFirstLastButtons>
+</mat-paginator>
+
