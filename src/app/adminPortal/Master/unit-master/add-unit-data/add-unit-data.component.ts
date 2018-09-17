@@ -13,7 +13,7 @@ export class AddUnitDataComponent implements OnInit {
   constructor(private unitService : UnitService, private toastr : ToastrService) { }
 
   ngOnInit() {
-   // this.resetForm();
+    this.resetForm();
 
   }
   /******************Reset Form*********** */
