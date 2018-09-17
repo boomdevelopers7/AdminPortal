@@ -18,7 +18,7 @@
   
   <div class="row">
     <div class="col-md-8">
-      <button [disabled]="!unitForm.valid" type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
+      <button (click)="onCloseConfirm()" [disabled]="!unitForm.valid" type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
     </div>
     <div class="col-md-4">
         <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(unitForm)">Reset</button>
