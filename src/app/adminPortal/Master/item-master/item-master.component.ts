@@ -20,7 +20,7 @@ export class ItemMasterComponent implements OnInit {
   dataSource = new MatTableDataSource();
 
 
-  displayedColumns = ['itemId', 'itemName', 'itemQuantity', 'unit', 'itemPrice'];
+  displayedColumns = ['itemId', 'itemName', 'itemQuantity', 'unit', 'itemPrice','update','delete'];
 
   constructor(private itemmasterservice: ItemMasterService, public dialog: MatDialog) { }
 
