@@ -22,6 +22,7 @@ resetForm(form? : NgForm){
   form.reset();
   this.unitService.selectUnit={
     ID:null,
+    unitId:null,
     unitName :'',
     unitDescription:'',
   }
