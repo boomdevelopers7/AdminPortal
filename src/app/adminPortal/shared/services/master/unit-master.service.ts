@@ -14,22 +14,27 @@ export class UnitService {
 selectUnit : Unit; 
   constructor(private http : HttpClient) { }
   loadData():Observable<Unit[]>{
+    const url='http://localhost:64597/api/unitMaster';
+    return this.http.get<Unit[]>(url);
     return this.http.get<Unit[]>(this.url+"/unitMaster");
 
 
   }
   postUnit(ut : Unit){
     const body: Unit={
+      ID:ut.ID,
       unitId:ut.unitId,
       unitName : ut.unitName,
       unitDescription :ut.unitDescription,
           }
+          return this.http.post('http://localhost:64597/api/unitMaster', body);
           return this.http.post(this.url+'/unitMaster', body);
         }
 
 
         
   getUnitDataList():Observable<Unit[]>{
+    return this.http.get<Unit[]>('http://localhost:64597/api/unitMaster');
     return this.http.get<Unit[]>(this.url+'/unitMaster');
   }
 }
