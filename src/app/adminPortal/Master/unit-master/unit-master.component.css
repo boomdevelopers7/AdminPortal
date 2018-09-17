@@ -1,9 +1,12 @@
-button{
+input,.btn{
     padding: 5px;
-    margin: 5px;
+    border-radius: 10px;
 }
 input{
     float: right;
+}
+.btn{
+    margin-inline-start: 70%;
 }
 i:hover{
 
@@ -11,9 +14,34 @@ i:hover{
 
 }
 
+  mat-table { 
+      margin-top: 10px;
+    width: 100%; 
+    border-collapse: collapse; 
+  }
 
   .mat-column-update {
     flex: 0 0 100px;
   }
 
+  
+  .mat-header-cell{
+    font-size: 15px;
+     font-weight:bold;
+ color: black;
+ background: #7db9e8;
+ box-shadow: 7px 8px 11px lightgray;
+ text-align: center;
+ 
+ }
+ 
+ .mat-paginator{
+     font-size: 15px;
+     font-weight:bold;
+ color: black;
+ background: #7db9e8;
+ box-shadow: 7px 8px 9px lightgray;
+ box-sizing: 1111px;
+ border-radius: 12px;
+ }
   
