@@ -1,42 +1,44 @@
-  
-<button mat-riased-button  (click)="onAddDialog()" type="submit" class="btn btn-success">Add</button>
-  
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  
-  <mat-table class="item-table mat-elevation-z8" [dataSource] = "dataSource"  matSort class="mat-elevation-z8">
-    
-    <ng-container matColumnDef = "itemId">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Sr.No</mat-header-cell>
-      <mat-cell *matCellDef = " let item">{{item.itemId}}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef = "itemName">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Item Name</mat-header-cell>
-        <mat-cell class="itemName-cell" *matCellDef=" let item">{{item.itemName}}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef = "itemQuantity">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</mat-header-cell>
-      <mat-cell *matCellDef = " let item">{{item.itemQuantity}}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef = "unit">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Unit</mat-header-cell>
-      <mat-cell *matCellDef = " let item">{{item.unit}}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef = "itemPrice">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
-      <mat-cell *matCellDef = " let item">{{item.itemPrice}}</mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef = "displayedColumns"></mat-header-row>
-    <mat-row *matRowDef = "let row; columns: displayedColumns"></mat-row>
-      </mat-table>
-
-<mat-paginator [length]="100"
-              [pageSize]="8"
-              [pageSizeOptions]="[3,5, 10, 25, 100]"
-              showFirstLastButtons>
-</mat-paginator>
-  
+ 
+   <button mat-riased-button class="addbutton" type="button" class="btn btn-success btn-lg" (click)="onAddDialog()">Add New</button>
+   <!-- <i class="fas fa-search"></i> -->
+     <input matInput class="searchbar" (keyup)="applyFilter($event.target.value)" placeholder="Search">
+     
+     <mat-table   [dataSource] = "dataSource"  matSort>
+       
+       <ng-container matColumnDef = "itemId">
+         <mat-header-cell *matHeaderCellDef mat-sort-header>No</mat-header-cell>
+         <mat-cell *matCellDef = " let item">{{item.itemId}}</mat-cell>
+       </ng-container>
+   
+       <ng-container matColumnDef = "itemName">
+           <mat-header-cell *matHeaderCellDef mat-sort-header>Item Name</mat-header-cell>
+           <mat-cell class="itemName-cell" *matCellDef=" let item">{{item.itemName}}</mat-cell>
+       </ng-container>
+   
+       <ng-container matColumnDef = "itemQuantity">
+         <mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</mat-header-cell>
+         <mat-cell *matCellDef = " let item">{{item.itemQuantity}}</mat-cell>
+       </ng-container>
+   
+       <ng-container matColumnDef = "unit">
+         <mat-header-cell *matHeaderCellDef mat-sort-header>Unit Name</mat-header-cell>
+         <mat-cell *matCellDef = " let item">{{item.unitMaster.unitName}}</mat-cell>
+       </ng-container>
+   
+       <ng-container matColumnDef = "itemPrice">
+         <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+         <mat-cell *matCellDef = " let item">{{item.itemPrice}}</mat-cell>
+       </ng-container>
+   
+       <mat-header-row *matHeaderRowDef = "displayedColumns"></mat-header-row>
+       <mat-row *matRowDef = "let row; columns: displayedColumns"></mat-row>
+         </mat-table>
+   
+   <mat-paginator [length]="100"
+                 [pageSize]="7"
+                 [pageSizeOptions]="[10, 25, 100]"
+                 showFirstLastButtons
+                 >
+   </mat-paginator>
+     
+   

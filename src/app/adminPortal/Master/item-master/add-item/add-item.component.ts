@@ -17,7 +17,7 @@ export class AddItemComponent implements OnInit {
   ngOnInit() {
   }
   onCloseConfirm(){
-    this.thisdialogRef.close('confirm');
+    this.thisdialogRef.close('conf irm');
 
   }
 

@@ -1,7 +1,18 @@
-<form class="form" #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+<form class="emp-form" #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
 
-  <div class="form-group">
-    <input name="itemName" class="form-control" placeholder="Item Name">
+  <div class="row">
+    <div class="form-group col-md-6">
+      <input name="itemName" class="form-control" placeholder="Item Name">
+
+    </div>
+    <div class="form-group col-md-6">
+      <select name="unitId" class="form-control custom-select">
+        <option selected>Seletct Unit</option>
+        <option value="1">Unit</option>
+        <option value="2">Unit2</option>
+        <option value="3">Unit3</option>
+      </select>
+    </div>
   </div>
 
   <div class="row">
@@ -12,7 +23,7 @@
       <input name="itemPrice" class="form-control" placeholder="item Price">
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col-md-8">
       <button type="submit" class="btn btn-lg btn-block btn-success">Add</button>

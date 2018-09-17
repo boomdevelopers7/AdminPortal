@@ -1,0 +1,35 @@
+
+.btn{
+    border-radius: 10px;
+    background: green;
+    
+    }
+    .searchbar{
+        float: right;
+        
+        
+    }
+    
+    .mat-header-cell{
+       font-size: 15px;
+        font-weight:bold;
+    color: black;
+    background: #7db9e8;
+    box-shadow: 7px 8px 11px lightgray;
+    text-align: center;
+    
+    }
+    
+    .mat-paginator{
+        font-size: 15px;
+        font-weight:bold;
+    color: black;
+    background: #7db9e8;
+    box-shadow: 7px 8px 9px lightgray;
+    box-sizing: 1111px;
+    border-radius: 12px;
+    }
+     .mat-cell{
+         background: #ecf0f5;
+     }
+     
