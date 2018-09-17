@@ -11,7 +11,6 @@ export class ItemMasterService {
   constructor(private http: HttpClient) { }
   getItemMaster(): Observable<ItemMaster[]>{
   const serviceUrl = "https://localhost:44315/api/item";
-  const serviceUrl = "http://localhost:64597/api/itemMaster";
     return this.http.get<ItemMaster[]>(serviceUrl);
   }
 }
