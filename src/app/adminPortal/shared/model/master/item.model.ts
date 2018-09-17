@@ -1,5 +1,5 @@
 import { UnitMasterComponent } from "../../../Master/unit-master/unit-master.component";
-import { Unit } from '../../model/master/unit.model';
+import { unitMaster } from '../../model/master/unit.model';
 
 export class ItemMaster {
 
@@ -8,6 +8,6 @@ export class ItemMaster {
     itemQuantity : string;
     itemUnit : string;
     itemPrice :number;
-    unitMaster: Unit;
+    unitMaster: unitMaster;
 }
 

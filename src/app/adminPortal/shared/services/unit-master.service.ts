@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Unit } from '../model/master/unit.model';
+// import { unitMaster } from '../model/master/unit.model';
 import { Observable } from 'rxjs';
+import { unitMaster } from '../model/master/unit.model';
 //import 'rxjs/add/operator/map';
 
 @Injectable({
@@ -11,10 +12,8 @@ import { Observable } from 'rxjs';
 export class UnitMasterService {
   
   constructor(private http: HttpClient ) {}
-  loadData():Observable<Unit[]>{
+  loadData():Observable<unitMaster[]>{
     const url='http://localhost:64597/api/unitMaster';
-    return this.http.get<Unit[]>(url);
-
-
+    return this.http.get<unitMaster[]>(url);
   }
 }  

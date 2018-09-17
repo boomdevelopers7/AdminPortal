@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Unit } from '../../../shared/model/master/unit.model';
+import { unitMaster } from '../../../shared/model/master/unit.model';
 import { UnitService } from '../../../shared/services/master/unit-master.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { UnitService } from '../../../shared/services/master/unit-master.service
   styleUrls: ['./update-unit-data.component.css']
 })
 export class UpdateUnitDataComponent implements OnInit {
-selectUnit: Unit;
+selectUnit: unitMaster;
   constructor(private unitService : UnitService) { }
 
   ngOnInit() {

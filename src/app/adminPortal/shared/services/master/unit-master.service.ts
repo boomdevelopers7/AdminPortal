@@ -3,24 +3,25 @@ import {Http, Response, Headers, RequestOptions, RequestMethod } from '@angular/
 import { Observable} from 'rxjs/internal/observable';
 import { map } from 'rxjs/operators';
 import { HttpClient} from '@angular/common/http';
-import { Unit } from '../../model/master/unit.model';
+import { unitMaster } from '../../model/master/unit.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UnitService {
-  dataList:Unit[];
-selectUnit : Unit; 
+  dataList:unitMaster[];
+selectUnit : unitMaster; 
   constructor(private http : HttpClient) { }
-  loadData():Observable<Unit[]>{
+  loadData():Observable<unitMaster[]>{
     const url='http://localhost:64597/api/unitMaster';
-    return this.http.get<Unit[]>(url);
+    return this.http.get<unitMaster[]>(url);
 
 
   }
-  postUnit(ut : Unit){
-    const body: Unit={
-      ID:ut.ID,
+  postUnit(ut : unitMaster){
+    const body: unitMaster={
+      unitId:ut.unitId,
       unitName : ut.unitName,
       unitDescription :ut.unitDescription,
           }
@@ -29,7 +30,7 @@ selectUnit : Unit;
 
 
         
-  getUnitDataList():Observable<Unit[]>{
-    return this.http.get<Unit[]>('http://localhost:64597/api/unitMaster');
+  getUnitDataList():Observable<unitMaster[]>{
+    return this.http.get<unitMaster[]>('http://localhost:64597/api/unitMaster');
   }
 }

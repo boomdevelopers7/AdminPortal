@@ -3,11 +3,11 @@
   
 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 
-<mat-table class="item-table mat-elevation-z8" [dataSource] = "dataSource"  matSort class="mat-elevation-z8">
+<mat-table   [dataSource] = "dataSource"  matSort>
   
-  <ng-container matColumnDef = "ID">
+  <ng-container matColumnDef = "unitId">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Sr.No</mat-header-cell>
-    <mat-cell *matCellDef = " let item">{{item.id}}</mat-cell>
+    <mat-cell *matCellDef = " let item">{{item.unitId}}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef = "unitName">
