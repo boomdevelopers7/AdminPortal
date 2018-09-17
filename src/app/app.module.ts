@@ -25,7 +25,7 @@ import { DeleteUnitDataComponent } from './adminPortal/Master/unit-master/delete
 const appRoutes: Routes=[
   { path: 'app-unit-master', component: UnitMasterComponent },
   { path: 'app-item-master', component: ItemMasterComponent },
-  { path: 'app-unit-master', component: UnitMasterComponent },
+  // { path: 'app-unit-master', component: UnitMasterComponent },
   { path:'', redirectTo: 'app-menu', pathMatch: 'full' }
 ]
 

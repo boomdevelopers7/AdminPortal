@@ -1,6 +1,7 @@
 <form class="form" #unitForm="ngForm" (ngSubmit)="onSubmit(unitForm)">
-   
+   <p class='msg_success'>{{msg}}</p>
   <div class="form-group row"> 
+      
     <div class="col-md-6">
       <input name="unitName" class="form-control" placeholder="Unit Name" #unitName="ngModel" [(ngModel)]="unitService.selectUnit.unitName" required> 
       <div class="validation-error" *ngIf="unitName.invalid && unitName.touched">This Field is reuired</div>
@@ -10,6 +11,7 @@
         <div class="validation-error" *ngIf="unitDescription.invalid && unitDescription.touched">This Field is reuired</div>
     
       </div>
+          <input name="unitId" value="0" style="visibility: collapse;" class="form-control"  #unitId="ngModel" [(ngModel)]="unitService.selectUnit.unitId"> 
      
     </div>
   

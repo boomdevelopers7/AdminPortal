@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+// import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 import { UnitService } from '../../shared/services/master/unit-master.service';
 import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
@@ -23,7 +23,7 @@ export class UnitMasterComponent implements OnInit {
 
   displayedColumns = ['unitId', 'unitName', 'unitDescription','update','delete'];
 
-  constructor( private UnitService: UnitService, public dialog: MatDialog) { }
+  constructor( private UnitService: UnitService, public dialog: MatDialog,private changeDetectorRefs: ChangeDetectorRef) { }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -37,8 +37,6 @@ export class UnitMasterComponent implements OnInit {
       this.dataSource.sort = this.sort;
     });
   }
-
-  
   // dialog module
   dialogResult = "";
   // add dialog
@@ -55,7 +53,14 @@ export class UnitMasterComponent implements OnInit {
   showForEdit(unit : unitMaster){
     console.log(unit);
     this.UnitService.selectUnit =Object.assign({},unit);
-    
+    let dialogRef = this.dialog.open(AddUnitDataComponent, {
+      width: '900',
+      data: 'this text'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('dialog closed: ${result}');
+      this.dialogResult = result;
+    })
   }
   // update dialog
   onUpdateDialog() {
@@ -78,5 +83,9 @@ export class UnitMasterComponent implements OnInit {
       console.log('dialog closed: ${result}');
       this.dialogResult = result;
     })
+  }
+  refresh() {
+   this.changeDetectorRefs.detectChanges();
+    });
   }
 }
