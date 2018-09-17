@@ -6,7 +6,8 @@ import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/m
 import { AddUnitDataComponent } from './add-unit-data/add-unit-data.component';
 import { UpdateUnitDataComponent } from './update-unit-data/update-unit-data.component';
 import { DeleteUnitDataComponent } from './delete-unit-data/delete-unit-data.component';
-import { UnitMasterService } from '../../shared/services/unit-master.service';
+// import { UnitMasterService } from '../../shared/services/unit-master.service';
+import { Unit } from '../../shared/model/master/unit.model';
 
 @Component({
   selector: 'app-unit-master',
@@ -20,17 +21,15 @@ export class UnitMasterComponent implements OnInit {
   
   dataSource = new MatTableDataSource();
 
-
   displayedColumns = ['ID', 'unitName', 'unitDescription','update','delete'];
 
-
-  constructor( private unitMasterService: UnitMasterService, public dialog: MatDialog) { }
+  constructor( private UnitService: UnitService, public dialog: MatDialog) { }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   ngOnInit() {
-    this.unitMasterService.loadData().subscribe(result => {
+    this.UnitService.loadData().subscribe(result => {
       this.dataSource = new MatTableDataSource(result);
       // sorting, paginator
       this.dataSource.paginator = this.paginator;
@@ -51,6 +50,11 @@ export class UnitMasterComponent implements OnInit {
       console.log('dialog closed: ${result}');
       this.dialogResult = result;
     })
+  }
+  showForEdit(unit : Unit){
+    console.log(unit);
+    this.UnitService.selectUnit =Object.assign({},unit);
+    
   }
   // update dialog
   onUpdateDialog() {

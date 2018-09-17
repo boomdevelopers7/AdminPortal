@@ -8,12 +8,10 @@ import { UnitService } from '../../../shared/services/master/unit-master.service
   styleUrls: ['./update-unit-data.component.css']
 })
 export class UpdateUnitDataComponent implements OnInit {
-
+selectUnit: Unit;
   constructor(private unitService : UnitService) { }
 
   ngOnInit() {
   }
-  showForEdit(emp : Unit){
-    this.unitService.selectUnit=Object.assign({},emp);
-  }
+ 
 }

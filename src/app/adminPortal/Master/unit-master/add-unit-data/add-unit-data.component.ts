@@ -13,10 +13,10 @@ export class AddUnitDataComponent implements OnInit {
   constructor(private unitService : UnitService, private toastr : ToastrService) { }
 
   ngOnInit() {
-    this.resetForm();
+   // this.resetForm();
 
   }
-  
+  /******************Reset Form*********** */
 resetForm(form? : NgForm){
   if(form != null)
   form.reset();
@@ -26,7 +26,9 @@ resetForm(form? : NgForm){
     unitDescription:'',
   }
 }
+/**************End Reset Form *************** */
 
+/***********Insert Record******************** */
 onSubmit(form : NgForm){
   this.unitService.postUnit(form.value)
   .subscribe(data=>{
@@ -34,5 +36,5 @@ onSubmit(form : NgForm){
     this.toastr.success('Record insert successfully', 'Unit register');
   })
 }
-
+/* ******* End Insert Record *************************/
 }

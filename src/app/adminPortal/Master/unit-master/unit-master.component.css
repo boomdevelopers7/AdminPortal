@@ -10,3 +10,10 @@ i:hover{
     cursor: pointer;
 
 }
+
+
+  .mat-column-update {
+    flex: 0 0 100px;
+  }
+
+  

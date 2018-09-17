@@ -12,7 +12,12 @@ export class UnitService {
   dataList:Unit[];
 selectUnit : Unit; 
   constructor(private http : HttpClient) { }
+  loadData():Observable<Unit[]>{
+    const url='http://localhost:64597/api/unitMaster';
+    return this.http.get<Unit[]>(url);
 
+
+  }
   postUnit(ut : Unit){
     const body: Unit={
       ID:ut.ID,
