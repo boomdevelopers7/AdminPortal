@@ -10,24 +10,25 @@ import { unitMaster } from '../../model/master/unit.model';
   providedIn: 'root'
 })
 export class UnitService {
-  dataList:unitMaster[];
-selectUnit : unitMaster; 
+  dataList:Observable<unitMaster[]>;
+selectUnit : unitMaster;
   constructor(private http : HttpClient) { }
   loadData():Observable<unitMaster[]>{
     const url='http://localhost:64597/api/unitMaster';
-    return this.http.get<unitMaster[]>(url);
+    this.dataList=this.http.get<unitMaster[]>(url);
+     return this.http.get<unitMaster[]>(url);
 
 
   }
-  postUnit(ut : unitMaster){
+  postUnit(ut : unitMaster):Observable<unitMaster[]>{
     console.log(ut);
     const body: unitMaster={
       unitId:ut.unitId,
       unitName : ut.unitName,
       unitDescription :ut.unitDescription,
           }
-          return this.http.post('http://localhost:64597/api/unitMaster', body);
-        }
+  return this.http.post<unitMaster[]>('http://localhost:64597/api/unitMaster', body);
+  }
 
   getUnitDataList():Observable<unitMaster[]>{
     return this.http.get<unitMaster[]>('http://localhost:64597/api/unitMaster');

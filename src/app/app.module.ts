@@ -20,7 +20,7 @@ import { AddItemComponent } from './adminPortal/Master/item-master/add-item/add-
 import { UpdateItemComponent } from './adminPortal/Master/item-master/update-item/update-item.component';
 import { DeleteItemComponent } from './adminPortal/Master/item-master/delete-item/delete-item.component';
 import { AddUnitDataComponent } from './adminPortal/Master/unit-master/add-unit-data/add-unit-data.component';
-import { UpdateUnitDataComponent } from './adminPortal/Master/unit-master/update-unit-data/update-unit-data.component';
+// import { UpdateUnitDataComponent } from './adminPortal/Master/unit-master/update-unit-data/update-unit-data.component';
 import { DeleteUnitDataComponent } from './adminPortal/Master/unit-master/delete-unit-data/delete-unit-data.component';
 const appRoutes: Routes=[
   { path: 'app-unit-master', component: UnitMasterComponent },
@@ -46,7 +46,7 @@ const appRoutes: Routes=[
     UpdateItemComponent,
     DeleteItemComponent,
     AddUnitDataComponent,
-    UpdateUnitDataComponent,
+    // UpdateUnitDataComponent,
     DeleteUnitDataComponent
   ],
   imports: [
@@ -66,7 +66,7 @@ MatCardModule,
   ],
   entryComponents:[
     AddUnitDataComponent,
-    UpdateUnitDataComponent,
+    // UpdateUnitDataComponent,
     DeleteUnitDataComponent,
     AddItemComponent,
     UpdateItemComponent,
