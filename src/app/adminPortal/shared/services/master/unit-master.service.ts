@@ -21,16 +21,21 @@ selectUnit : unitMaster;
 
   }
   postUnit(ut : unitMaster):Observable<unitMaster[]>{
-    console.log(ut);
     const body: unitMaster={
       unitId:ut.unitId,
       unitName : ut.unitName,
       unitDescription :ut.unitDescription,
           }
+          console.log('kk'+body);
   return this.http.post<unitMaster[]>('http://localhost:64597/api/unitMaster', body);
   }
 
   getUnitDataList():Observable<unitMaster[]>{
     return this.http.get<unitMaster[]>('http://localhost:64597/api/unitMaster');
+  }
+  Delete( ut : unitMaster){
+   
+    return this.http.delete<unitMaster[]>('http://localhost:64597/api/unitMaster/'+ut.unitId );
+   //return null;
   }
 }

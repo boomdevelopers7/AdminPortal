@@ -27,7 +27,7 @@
 
   <ng-container matColumnDef = "delete">
     <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
-    <mat-cell *matCellDef = " let item"><i class="fa fa-trash" aria-hidden="false"></i></mat-cell>
+    <mat-cell *matCellDef = " let item"  (click)="forDelete(item)"><i class="fa fa-trash" aria-hidden="false"></i></mat-cell>
   </ng-container>
 
     <mat-header-row *matHeaderRowDef = "displayedColumns"></mat-header-row>

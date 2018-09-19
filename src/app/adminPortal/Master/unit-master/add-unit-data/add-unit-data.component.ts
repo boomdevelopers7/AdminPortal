@@ -27,7 +27,7 @@ resetForm(form? : NgForm){
   if(isEmptyObject(this.unitService.selectUnit))
   {
   this.unitService.selectUnit={
-    unitId:null,
+    unitId:0,
     unitName :'',
     unitDescription:'',
   }
@@ -40,8 +40,6 @@ msg:string=null;
 onSubmit(form : NgForm){
   this.unitService.postUnit(form.value)
   .subscribe(data=>{
-    console.log("test ghjgjs dsajgdsjadgasjdgajs")
-      // this.router.navigate(['/app-item-master']);
 this.msg='success';
    this.changeDetectorRefs.detectChanges();
     

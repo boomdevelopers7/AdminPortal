@@ -41,11 +41,13 @@ export class UnitMasterComponent implements OnInit {
   dialogResult = "";
   // add dialog
   onAddDialog() {
+    
     let dialogRef = this.dialog.open(AddUnitDataComponent, {
       width: '900',
       data: 'this text'
     });
     dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
       console.log('dialog closed: ${result}');
       this.dialogResult = result;
     })
@@ -61,6 +63,17 @@ export class UnitMasterComponent implements OnInit {
       console.log('dialog closed: ${result}');
       this.dialogResult = result;
     })
+  }
+
+  forDelete(unit : unitMaster){
+    if(confirm('Are u sure')==true){
+   // this.UnitService.selectUnit=Object.assign({},unit);
+    this.UnitService.Delete(unit).subscribe(x=>{
+      this.ngOnInit();
+      this.UnitService.getUnitDataList();
+
+    })
+  }
   }
   // update dialog
   onUpdateDialog() {
@@ -82,7 +95,8 @@ export class UnitMasterComponent implements OnInit {
       // sorting, paginator
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-    });         
+    });     
+        
 
   }
 }
