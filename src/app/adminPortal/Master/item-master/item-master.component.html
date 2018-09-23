@@ -1,7 +1,6 @@
  
-   <button mat-riased-button class="addbutton" type="button" class="btn btn-success btn-lg" (click)="onAddDialog()">Add New</button>
-   <!-- <i class="fas fa-search"></i> -->
-     <input matInput class="searchbar" (keyup)="applyFilter($event.target.value)" placeholder="Search">
+   <button mat-riased-button  (click)="onAddDialog()" type="button" class="btn btn-success btn-lg">Add New</button>
+     <input matInput (keyup)="applyFilter($event.target.value)" class="searchbar" placeholder="Search">
      
      <mat-table   [dataSource] = "dataSource"  matSort>
        
@@ -32,12 +31,12 @@
    
        <ng-container matColumnDef = "update">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef = " let item"  (click)="showForEdit(item)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></mat-cell>
+        <mat-cell *matCellDef = " let item"  (click)="onUpdateDialog(item)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></mat-cell>
       </ng-container>
     
       <ng-container matColumnDef = "delete">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef = " let item"><i class="fa fa-trash" aria-hidden="false"></i></mat-cell>
+        <mat-cell *matCellDef = " let item" (click)="onDeleteDialog(item)"><i class="fa fa-trash" aria-hidden="false"></i></mat-cell>
       </ng-container>
 
        <mat-header-row *matHeaderRowDef = "displayedColumns"></mat-header-row>

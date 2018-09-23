@@ -1,49 +1,30 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatTableDataSource, MatPaginator, MatDialog } from '@angular/material';
-
 import { ItemMasterService } from '../../shared/services/master/item-master.service';
-
-import { DeleteItemComponent } from './delete-item/delete-item.component';
 import { AddItemComponent } from './add-item/add-item.component';
-import { UpdateItemComponent } from './update-item/update-item.component';
-
+import { ItemMaster } from '../../shared/model/master/item.model';
 @Component({
   selector: 'app-item-master',
   templateUrl: './item-master.component.html',
   styleUrls: ['./item-master.component.css']
 })
 export class ItemMasterComponent implements OnInit {
-
+  constructor(private itemmasterservice: ItemMasterService, public dialog: MatDialog) { }
+  displayedColumns = ['itemId', 'itemName', 'itemQuantity', 'unit', 'itemPrice', 'update', 'delete'];
+  dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-
-  dataSource = new MatTableDataSource();
-
-
-  displayedColumns = ['itemId', 'itemName', 'itemQuantity', 'unit', 'itemPrice','update','delete'];
-
-  constructor(private itemmasterservice: ItemMasterService, public dialog: MatDialog) { }
-
-
-// filtering material table
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
-
   ngOnInit() {
-    this.itemmasterservice.getItemMaster().subscribe(result => {
+    this.itemmasterservice.loadData().subscribe(result => {
       this.dataSource = new MatTableDataSource(result);
-      // sorting, paginator
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
   }
-
-
-  // dialog module
   dialogResult = "";
-  // add dialog
   onAddDialog() {
     let dialogRef = this.dialog.open(AddItemComponent, {
       width: '600',
@@ -54,27 +35,25 @@ export class ItemMasterComponent implements OnInit {
       this.dialogResult = result;
     })
   }
-  // update dialog
-  onUpdateDialog() {
-    let dialogRef = this.dialog.open(UpdateItemComponent, {
-      width: '600',
+  onUpdateDialog(item: ItemMaster) {
+    this.itemmasterservice.selectItem = Object.assign({}, item);
+    let dialogRef = this.dialog.open(AddItemComponent, {
+      width: '900',
       data: 'this text'
     });
     dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
       console.log('dialog closed: ${result}');
       this.dialogResult = result;
     })
-  } 
-  // delete dialog
-  onDeleteDialog() {
-    let dialogRef = this.dialog.open(DeleteItemComponent, {
-      width: '600',
-      data: 'this text'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('dialog closed: ${result}');
-      this.dialogResult = result;
-    })
+  }
+  onDeleteDialog(item: ItemMaster) {
+    if (confirm('Are u sure') == true) {
+      this.itemmasterservice.Delete(item).subscribe(x => {
+        this.ngOnInit();
+        this.itemmasterservice.getItemDataList();
+      })
+    }
   }
 }
 

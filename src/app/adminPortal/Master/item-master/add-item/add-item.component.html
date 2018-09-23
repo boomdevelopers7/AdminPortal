@@ -1,36 +1,36 @@
-<form class="emp-form" #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
-
-  <div class="row">
-    <div class="form-group col-md-6">
-      <input name="itemName" class="form-control" placeholder="Item Name">
-
+<form class="form" #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+  <p class='msg_success'>{{msg}}</p>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-6">
+        <input name="itemName" class="form-control" #itemName="ngModel" [(ngModel)]="itemmasterService.selectItem.itemName">
+      </div>
+      <div class="col-md-6">
+        <input name="itemQuantity" class="form-control" #itemQuantity="ngModel" [(ngModel)]="itemmasterService.selectItem.itemQuantity">
+      </div>
     </div>
-    <div class="form-group col-md-6">
-      <select name="unitId" class="form-control custom-select">
-        <option selected>Seletct Unit</option>
-        <option value="1">Unit</option>
-        <option value="2">Unit2</option>
-        <option value="3">Unit3</option>
-      </select>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <select required name="unitId" #refUnit="ngModel" class="form-control" [(ngModel)]="unitService.selectUnit">
+          <option value="undefined">Select Unit Name</option>
+          <option *ngFor="let unit of units" [ngValue]="unit.unitId">
+            {{unit.unitName}}
+          </option>
+        </select> </div>
+      <div class="col-md-6">
+        <input name="itemPrice" class="form-control" #itemPrice="ngModel" [(ngModel)]="itemmasterService.selectItem.itemPrice">
+      </div>
     </div>
+    <input name="itemId" value="0" style="visibility: collapse;" class="form-control" #unitId="ngModel" [(ngModel)]="itemmasterService.selectItem.itemId">
   </div>
-
-  <div class="row">
-    <div class="form-group col-md-6">
-      <input name="itemquantity" class="form-control" placeholder="Item Quantity">
-    </div>
-    <div class="form-group col-md-6">
-      <input name="itemPrice" class="form-control" placeholder="item Price">
-    </div>
-  </div>
-
   <div class="row">
     <div class="col-md-8">
-      <button type="submit" class="btn btn-lg btn-block btn-success">Add</button>
+      <button (click)="onCloseConfirm()" [disabled]="!itemForm.valid" type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
     </div>
     <div class="col-md-4">
-      <button type="button" class="btn btn-lg btn-block btn-danger">Cancel</button>
+      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(itemForm)">Reset</button>
     </div>
   </div>
-
 </form>
