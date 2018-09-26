@@ -3,13 +3,14 @@ import { MatSort, MatTableDataSource, MatPaginator, MatDialog, MatSnackBar } fro
 import { ItemMasterService } from '../../shared/services/master/item-master.service';
 import { AddItemComponent } from './add-item/add-item.component';
 import { ItemMaster } from '../../shared/model/master/item.model';
+
 @Component({
   selector: 'app-item-master',
   templateUrl: './item-master.component.html',
   styleUrls: ['./item-master.component.css']
 })
 export class ItemMasterComponent implements OnInit {
-  constructor(private itemmasterservice: ItemMasterService, public dialog: MatDialog,public snackBar: MatSnackBar) { }
+  constructor(private itemmasterservice: ItemMasterService,  public dialog: MatDialog,public snackBar: MatSnackBar) { }
   displayedColumns = ['itemId', 'itemName', 'itemQuantity', 'unit', 'itemPrice', 'update', 'delete'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -55,10 +56,7 @@ export class ItemMasterComponent implements OnInit {
       })
     }
   }
-  openSnackbar() {
-    this.snackBar.open("Record Update Successfully","", {
-      duration: 1000
-    });
-  }
+   
+  
 }
 

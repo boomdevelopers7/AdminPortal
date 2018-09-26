@@ -3,10 +3,10 @@
   <div class="form-group">
     <div class="row">
       <div class="col-md-6">
-        <input name="itemName" class="form-control" #itemName="ngModel" [(ngModel)]="itemmasterService.selectItem.itemName">
+        <input name="itemName" class="form-control" #itemName="ngModel" [(ngModel)]="itemmasterService.selectItem.itemName" placeholder="Item Name">
       </div>
       <div class="col-md-6">
-        <input name="itemQuantity" class="form-control" #itemQuantity="ngModel" [(ngModel)]="itemmasterService.selectItem.itemQuantity">
+        <input name="itemQuantity" class="form-control" #itemQuantity="ngModel" [(ngModel)]="itemmasterService.selectItem.itemQuantity" placeholder="Item Quantity">
       </div>
     </div>
     <br>
@@ -20,14 +20,14 @@
           </option>
         </select> </div>
       <div class="col-md-6">
-        <input name="itemPrice" class="form-control" #itemPrice="ngModel" [(ngModel)]="itemmasterService.selectItem.itemPrice">
+        <input name="itemPrice" class="form-control" #itemPrice="ngModel" [(ngModel)]="itemmasterService.selectItem.itemPrice" placeholder="Item Price">
       </div>
     </div>
     <input name="itemId" value="0" style="visibility: collapse;" class="form-control" #unitId="ngModel" [(ngModel)]="itemmasterService.selectItem.itemId">
   </div>
   <div class="row">
     <div class="col-md-8">
-      <button (click)="openSnackBar()" (click)="onCloseConfirm()" [disabled]="!itemForm.valid" type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
+      <button (click)=" openSnackBar()" (click)="onCloseConfirm()" [disabled]="!itemForm.valid" type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
     </div>
     <div class="col-md-4">
       <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(itemForm)">Reset</button>

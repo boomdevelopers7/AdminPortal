@@ -53,7 +53,7 @@ export class UnitMasterComponent implements OnInit {
     })
   }
   showForEdit(unit : unitMaster){
-    this.UnitService.selectUnit =Object.assign({},unit);
+    this.UnitService.selectUnit = Object.assign({},unit);
     let dialogRef = this.dialog.open(AddUnitDataComponent, {
       width: '900',
       data: 'this text'
