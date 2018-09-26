@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSort, MatTableDataSource, MatPaginator, MatDialog } from '@angular/material';
+import { MatSort, MatTableDataSource, MatPaginator, MatDialog, MatSnackBar } from '@angular/material';
 import { ItemMasterService } from '../../shared/services/master/item-master.service';
 import { AddItemComponent } from './add-item/add-item.component';
 import { ItemMaster } from '../../shared/model/master/item.model';
@@ -9,7 +9,7 @@ import { ItemMaster } from '../../shared/model/master/item.model';
   styleUrls: ['./item-master.component.css']
 })
 export class ItemMasterComponent implements OnInit {
-  constructor(private itemmasterservice: ItemMasterService, public dialog: MatDialog) { }
+  constructor(private itemmasterservice: ItemMasterService, public dialog: MatDialog,public snackBar: MatSnackBar) { }
   displayedColumns = ['itemId', 'itemName', 'itemQuantity', 'unit', 'itemPrice', 'update', 'delete'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -54,6 +54,11 @@ export class ItemMasterComponent implements OnInit {
         this.itemmasterservice.getItemDataList();
       })
     }
+  }
+  openSnackbar() {
+    this.snackBar.open("Record Update Successfully","", {
+      duration: 1000
+    });
   }
 }
 

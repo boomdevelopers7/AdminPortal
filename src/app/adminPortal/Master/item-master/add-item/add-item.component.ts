@@ -1,19 +1,20 @@
 import { Component, OnInit, Inject, ChangeDetectorRef } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 import { NgForm } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { Router } from '@angular/router';
 import { UnitService } from '../../../shared/services/master/unit-master.service';
 import { unitMaster } from '../../../shared/model/master/unit.model';
 import { ItemMasterService } from '../../../shared/services/master/item-master.service';
+
 @Component({
   selector: 'app-add-item',
   templateUrl: './add-item.component.html',
   styleUrls: ['./add-item.component.css']
 })
 export class AddItemComponent implements OnInit {
-  constructor(private itemmasterService: ItemMasterService,
+  constructor(private itemmasterService: ItemMasterService,public snackBar: MatSnackBar,
     private unitService: UnitService,
     private router: Router, private changeDetectorRefs: ChangeDetectorRef,
     public thisdialogRef: MatDialogRef<AddItemComponent>, @Inject(MAT_DIALOG_DATA) public data: string) {
@@ -51,5 +52,10 @@ export class AddItemComponent implements OnInit {
   }
   onCloseConfirm() {
     this.thisdialogRef.close('conf irm');
+  }
+  openSnackbar() {
+    this.snackBar.open("Record Added Successfully","", {
+      duration: 1000
+    });
   }
 }
