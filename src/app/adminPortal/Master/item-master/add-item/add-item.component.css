@@ -1,0 +1,4 @@
+.cdk-global-overlay-wrapper {
+    align-items: flex-start !important;
+    justify-content: flex-start !important
+  }

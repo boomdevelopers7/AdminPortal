@@ -53,9 +53,14 @@ export class AddItemComponent implements OnInit {
   onCloseConfirm() {
     this.thisdialogRef.close('conf irm');
   }
-  openSnackbar() {
-    this.snackBar.open("Record Added Successfully","", {
-      duration: 1000
-    });
-  }
+  // openSnackbar() {
+  //   this.snackBar.open("Record Added Successfully","", {
+  //     duration: 1000
+  //   });
+  // }
+
+  openSnackBar(message: string, action?: string) {
+    this.snackBar.open('Added Successfully', action ? action : undefined, {duration: 1000, verticalPosition: 'top', horizontalPosition: 'start'});
+}
+
 }
