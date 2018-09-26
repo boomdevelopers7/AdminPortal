@@ -7,6 +7,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 //import  'rxjs/add/operator/toPromise';
+import { MatSnackBarModule } from '@angular/material';
  
 import { UnitMasterComponent } from './adminPortal/Master/unit-master/unit-master.component';
 import { HeaderComponent } from './adminportal/dashboard/header/header.component';
@@ -17,8 +18,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MenuComponent } from './adminPortal/Dashboard/Sidebar/menu.component';
 import { ItemMasterComponent } from './adminPortal/Master/item-master/item-master.component';
 import { AddItemComponent } from './adminPortal/Master/item-master/add-item/add-item.component';
-import { UpdateItemComponent } from './adminPortal/Master/item-master/update-item/update-item.component';
-import { DeleteItemComponent } from './adminPortal/Master/item-master/delete-item/delete-item.component';
 import { AddUnitDataComponent } from './adminPortal/Master/unit-master/add-unit-data/add-unit-data.component';
 // import { UpdateUnitDataComponent } from './adminPortal/Master/unit-master/update-unit-data/update-unit-data.component';
 import { DeleteUnitDataComponent } from './adminPortal/Master/unit-master/delete-unit-data/delete-unit-data.component';
@@ -43,8 +42,6 @@ const appRoutes: Routes=[
     //UpdateUnitDataComponent,
     UnitMasterComponent,
     AddItemComponent,
-    UpdateItemComponent,
-    DeleteItemComponent,
     AddUnitDataComponent,
     // UpdateUnitDataComponent,
     DeleteUnitDataComponent
@@ -61,16 +58,15 @@ MatCardModule,
     RouterModule.forRoot(appRoutes),
     MatButtonModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule 
     
   ],
   entryComponents:[
     AddUnitDataComponent,
     // UpdateUnitDataComponent,
     DeleteUnitDataComponent,
-    AddItemComponent,
-    UpdateItemComponent,
-    DeleteItemComponent
+    AddItemComponent
 
   ],
   providers: [],
