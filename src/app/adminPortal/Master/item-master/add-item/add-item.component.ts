@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject, ChangeDetectorRef } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
-import { MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
+import { MAT_DIALOG_DATA, MatSnackBar, MatDialogRef  } from '@angular/material';
 import { NgForm } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { Router } from '@angular/router';
@@ -14,7 +13,7 @@ import { ItemMasterService } from '../../../shared/services/master/item-master.s
   styleUrls: ['./add-item.component.css']
 })
 export class AddItemComponent implements OnInit {
-  constructor(private itemmasterService: ItemMasterService,public snackBar: MatSnackBar,
+  constructor(private itemmasterService: ItemMasterService, public snackBar: MatSnackBar,
     private unitService: UnitService,
     private router: Router, private changeDetectorRefs: ChangeDetectorRef,
     public thisdialogRef: MatDialogRef<AddItemComponent>, @Inject(MAT_DIALOG_DATA) public data: string) {
@@ -25,7 +24,7 @@ export class AddItemComponent implements OnInit {
   }
   units: unitMaster[];
   selectUnit: number;
-  
+
   resetForm(form?: NgForm) {
     if (form != null)
       form.reset();
@@ -53,11 +52,18 @@ export class AddItemComponent implements OnInit {
   onCloseConfirm() {
     this.thisdialogRef.close('conf irm');
   }
-  
+
   openSnackBar(message: string, action: string) {
     this.snackBar.open('Record Added Successfully', action, {
       duration: 2000,
     });
   }
-  
+  numberOnly(event): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+
+  }
 }

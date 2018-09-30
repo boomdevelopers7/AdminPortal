@@ -56,7 +56,5 @@ export class ItemMasterComponent implements OnInit {
       })
     }
   }
-   
-  
 }
 

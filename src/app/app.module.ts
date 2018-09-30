@@ -7,15 +7,15 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 //import  'rxjs/add/operator/toPromise';
-import { MatSnackBarModule } from '@angular/material';
- 
+import {MatTableModule,MatCardModule, MatSnackBarModule, MatSortModule, MatPaginatorModule,
+         MatDialogModule, MatButtonModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { UnitMasterComponent } from './adminPortal/Master/unit-master/unit-master.component';
 import { HeaderComponent } from './adminportal/dashboard/header/header.component';
 import { FooterComponent } from './adminportal/dashboard/footer/footer.component';
 import { SettingComponent } from './adminportal/dashboard/setting/setting.component';
-import {MatTableModule,MatCardModule, MatSortModule, MatPaginatorModule, MatDialogModule, MatButtonModule} from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MenuComponent } from './adminPortal/Dashboard/Sidebar/menu.component';
 import { ItemMasterComponent } from './adminPortal/Master/item-master/item-master.component';
 import { AddItemComponent } from './adminPortal/Master/item-master/add-item/add-item.component';
@@ -60,7 +60,8 @@ MatCardModule,
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
-    MatSnackBarModule 
+    MatSnackBarModule,
+    MatTooltipModule 
     
   ],
   entryComponents:[
