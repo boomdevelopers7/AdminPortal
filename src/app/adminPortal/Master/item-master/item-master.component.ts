@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSort, MatTableDataSource, MatPaginator, MatDialog, MatSnackBar } from '@angular/material';
+import { MatSort, MatTableDataSource, MatPaginator, MatDialog } from '@angular/material';
 import { ItemMasterService } from '../../shared/services/master/item-master.service';
 import { AddItemComponent } from './add-item/add-item.component';
 import { ItemMaster } from '../../shared/model/master/item.model';
@@ -10,7 +10,7 @@ import { ItemMaster } from '../../shared/model/master/item.model';
   styleUrls: ['./item-master.component.css']
 })
 export class ItemMasterComponent implements OnInit {
-  constructor(private itemmasterservice: ItemMasterService,  public dialog: MatDialog,public snackBar: MatSnackBar) { }
+  constructor(private itemmasterservice: ItemMasterService,  public dialog: MatDialog) { }
   displayedColumns = ['itemId', 'itemName', 'itemQuantity', 'unit', 'itemPrice', 'update', 'delete'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -32,6 +32,7 @@ export class ItemMasterComponent implements OnInit {
       data: 'this text'
     });
     dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
       console.log('dialog closed: ${result}');
       this.dialogResult = result;
     })
