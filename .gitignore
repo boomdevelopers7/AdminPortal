@@ -37,3 +37,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+src/app/adminPortal/Master/customer-master/add-customer/add-customer.component.css
+src/app/adminPortal/Master/customer-master/add-customer/add-customer.component.html
+*.html

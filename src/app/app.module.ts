@@ -28,12 +28,21 @@ import { cityMasterComponent } from './adminPortal/Master/city-master/city-maste
 import { SupplierComponent } from './adminPortal/Master/supplier/supplier.component';
 import { AddSupplierComponent } from './adminPortal/Master/supplier/add-supplier/add-supplier.component';
 import { FlatMasterComponent } from './adminPortal/Master/flat-master/flat-master.component';
-import { AddCustomerComponent } from './adminPortal/Master/customer-master/add-customer/add-customer.component';
-import { CustomerMasterComponent } from './adminPortal/Master/customer-master/customer-master.component';
+import { AreaMasterComponent } from './adminPortal/Master/area-master/area-master.component';
+import { AddAreaComponent  } from './adminPortal/Master/area-master/add-area/add-area.component';
+import { SocietyMasterComponent } from './adminPortal/Master/society-master/society-master.component';
+import { AddSocietyComponent } from './adminPortal/Master/society-master/add-society/add-society.component';
+import { TypeMasterComponent } from './adminPortal/Master/type-master/type-master.component';
+import { AddTypeComponent } from './adminPortal/Master/type-master/add-type/add-type.component';
+
 const appRoutes: Routes=[
   { path: 'app-unit-master', component: UnitMasterComponent },
   { path: 'app-item-master', component: ItemMasterComponent },
+  { path: 'app-type-master', component: TypeMasterComponent },
+  { path: 'app-area-master', component: AreaMasterComponent },
+  { path: 'app-society-master', component: SocietyMasterComponent },
   { path: 'app-city-master', component: cityMasterComponent },
+  { path: 'app-suplier-master', component: SupplierComponent },
   { path:'', redirectTo: 'app-menu', pathMatch: 'full' }
 ]
 
@@ -57,8 +66,12 @@ const appRoutes: Routes=[
     SupplierComponent,
     AddSupplierComponent,
     FlatMasterComponent,
-     CustomerMasterComponent,
-     AddCustomerComponent
+    AreaMasterComponent,
+    AddAreaComponent,
+    TypeMasterComponent,
+    AddTypeComponent,
+    SocietyMasterComponent,
+    AddSocietyComponent
   ],
   imports: [
     HttpModule,    
@@ -84,11 +97,13 @@ MatCardModule,
     // UpdateUnitDataComponent,
     DeleteUnitDataComponent,
     AddItemComponent,
-<<<<<<< HEAD
-    AddcityDataComponent
-=======
+    AddAreaComponent,
+    AddSocietyComponent,
+    AddTypeComponent,
+    AddcityDataComponent,
+
     AddSupplierComponent
->>>>>>> 35f958a9ac3a32d132009ed0046244c5931cdf0d
+
 
   ],
   providers: [],
