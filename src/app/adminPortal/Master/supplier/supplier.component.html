@@ -1,0 +1,57 @@
+  
+<button  (click)="onAddDialog()" type="submit" class="btn btn-primary btn-lg">Add Supplier</button>
+  
+<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+
+<mat-table   [dataSource] = "dataSource"  matSort>
+  
+  <ng-container matColumnDef = "supId">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Sr.No</mat-header-cell>
+    <mat-cell *matCellDef = " let item">{{item.supId}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef = "supName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Supplier Name</mat-header-cell>
+      <mat-cell class="itemName-cell" *matCellDef=" let item">{{item.supName}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef = "supAddress">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Supplier Address</mat-header-cell>
+    <mat-cell *matCellDef = " let item">{{item.supAddress}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef = "supMobNo">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Mobile NO 1</mat-header-cell>
+    <mat-cell *matCellDef = " let item">{{item.supMobNo}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef = "supMobNo2">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Mobile NO 2</mat-header-cell>
+    <mat-cell *matCellDef = " let item">{{item.supMobNo2}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef = "supPincode">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Pincode</mat-header-cell>
+    <mat-cell *matCellDef = " let item">{{item.supPincode}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef = "update">
+    <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+    <mat-cell *matCellDef = " let item"  (click)="showForEdit(item)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef = "delete">
+    <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+    <mat-cell *matCellDef = " let item"  (click)="forDelete(item)"><i class="fa fa-trash" aria-hidden="false"></i></mat-cell>
+  </ng-container>
+
+    <mat-header-row *matHeaderRowDef = "displayedColumns"></mat-header-row>
+  <mat-row *matRowDef = "let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+<mat-paginator [length]="100"
+            [pageSize]="8"
+            [pageSizeOptions]="[3,5, 10, 25, 100]"
+            showFirstLastButtons>
+</mat-paginator>
+

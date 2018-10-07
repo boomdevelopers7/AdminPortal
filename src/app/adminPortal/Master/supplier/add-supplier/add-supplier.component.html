@@ -1,0 +1,45 @@
+<form class="form" #supplierForm="ngForm" (ngSubmit)="onSubmit(supplierForm)">
+  <p class='msg_success'>{{msg}}</p>
+     
+     <input class="form-group" name="supName" class="form-control" placeholder="supplier Name" #supName="ngModel" [(ngModel)]="supplierService.selectSupplier.supName" required> 
+     <div class="validation-error" *ngIf="supName.invalid && supName.touched">This Field is reuired</div>
+<br>
+     <input class="form-group" name="supAddress" class="form-control" placeholder="Supplier Address" #supAddress="ngModel" [(ngModel)]="supplierService.selectSupplier.supAddress" required> -
+       <div class="validation-error" *ngIf="supAddress.invalid && supAddress.touched">This Field is reuired</div>
+   
+   <div class="row">
+     <div class="col-md-6">
+       <input name="supMobNo" class="form-control" placeholder="Mobile Number" #supMobNo="ngModel" [(ngModel)]="supplierService.selectSupplier.supMobNo" required>
+       <div class="validation-error" *ngIf="supMobNo.invalid && supMobNo.touched">This Field is reuired</div>
+     </div>
+     <div class="col-md-6">
+      <input name="supMobNo2" class="form-control" placeholder="Alternate Mobile Number" #supMobNo2="ngModel" [(ngModel)]="supplierService.selectSupplier.supMobNo2" required>
+      <div class="validation-error" *ngIf="supMobNo2.invalid && supMobNo2.touched">This Field is reuired</div>
+     </div>
+    
+   </div>
+   <br>
+   <div class="row">
+     <div class="col-md-2">Pincode:</div>
+     
+     <div class="col-md-4">
+      <input name="supPincode" class="form-control" placeholder="PinCode" #supPincode="ngModel" [(ngModel)]="supplierService.selectSupplier.supPincode" required>
+      <div class="validation-error" *ngIf="supPincode.invalid && supPincode.touched">This Field is reuired</div>
+     </div>
+     <div class="col-md-6"></div>
+    </div>
+     <input name="supId" value="0" style="visibility: collapse;" class="form-control"  #unitId="ngModel" [(ngModel)]="supplierService.selectSupplier.supId"> -
+   
+ 
+ <div class="row">
+   <div class="col-md-8">
+     <button (click)="onCloseConfirm()" [disabled]="!supplierForm.valid" type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
+   </div>
+   <div class="col-md-4">
+       <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(supplierForm)">Reset</button>
+     </div>
+ </div>
+ 
+ </form>
+
+ 
