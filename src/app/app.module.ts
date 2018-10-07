@@ -22,9 +22,13 @@ import { AddItemComponent } from './adminPortal/Master/item-master/add-item/add-
 import { AddUnitDataComponent } from './adminPortal/Master/unit-master/add-unit-data/add-unit-data.component';
 // import { UpdateUnitDataComponent } from './adminPortal/Master/unit-master/update-unit-data/update-unit-data.component';
 import { DeleteUnitDataComponent } from './adminPortal/Master/unit-master/delete-unit-data/delete-unit-data.component';
+import { AddcityDataComponent } from './adminPortal/Master/city-master/add-city-data/add-city-data.component';
+import { cityMasterComponent } from './adminPortal/Master/city-master/city-master.component';
+// import {cityMasterComponent} from './adminPortal/Master/city-master/city-master.component'
 const appRoutes: Routes=[
   { path: 'app-unit-master', component: UnitMasterComponent },
   { path: 'app-item-master', component: ItemMasterComponent },
+  { path: 'app-city-master', component: cityMasterComponent },
   // { path: 'app-unit-master', component: UnitMasterComponent },
   { path:'', redirectTo: 'app-menu', pathMatch: 'full' }
 ]
@@ -36,6 +40,7 @@ const appRoutes: Routes=[
     LoginComponent,
     UnitMasterComponent,
     ItemMasterComponent,
+    cityMasterComponent,
     HeaderComponent,
     FooterComponent,
     MenuComponent,
@@ -45,7 +50,8 @@ const appRoutes: Routes=[
     AddItemComponent,
     AddUnitDataComponent,
     // UpdateUnitDataComponent,
-    DeleteUnitDataComponent
+    DeleteUnitDataComponent,
+    AddcityDataComponent
   ],
   imports: [
     HttpModule,    
@@ -68,7 +74,8 @@ MatCardModule,
     AddUnitDataComponent,
     // UpdateUnitDataComponent,
     DeleteUnitDataComponent,
-    AddItemComponent
+    AddItemComponent,
+    AddcityDataComponent
 
   ],
   providers: [],

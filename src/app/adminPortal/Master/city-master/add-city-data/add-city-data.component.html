@@ -1,0 +1,26 @@
+<form class="form" #cityForm="ngForm" (ngSubmit)="onSubmit(cityForm)">
+  <p class='msg_success'>{{msg}}</p>
+ <div class="form-group row"> 
+     
+   <div class="col-md-6">
+     <input name="cityName" class="form-control" placeholder="city Name" #cityName="ngModel" [(ngModel)]="cityService.selectcity.cityName" required> 
+     <div class="validation-error" *ngIf="cityName.invalid && cityName.touched">This Field is reuired</div>
+   </div>
+   
+         <input name="cityId" value="0" style="visibility: collapse;" class="form-control"  #cityId="ngModel" [(ngModel)]="cityService.selectcity.cityId"> 
+    
+   </div>
+ 
+ 
+ <div class="row">
+   <div class="col-md-8">
+     <button (click)="onCloseConfirm()" [disabled]="!cityForm.valid" type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
+   </div>
+   <div class="col-md-4">
+       <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(cityForm)">Reset</button>
+     </div>
+ </div>
+ 
+ </form>
+
+ 

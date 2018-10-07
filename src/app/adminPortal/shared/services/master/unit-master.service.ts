@@ -21,12 +21,16 @@ selectUnit : unitMaster;
 
   }
   postUnit(ut : unitMaster):Observable<unitMaster[]>{
+    this.selectUnit={
+      unitId:0,
+      unitName :'',
+      unitDescription:'',
+    }
     const body: unitMaster={
       unitId:ut.unitId,
       unitName : ut.unitName,
       unitDescription :ut.unitDescription,
           }
-          console.log('kk'+body);
   return this.http.post<unitMaster[]>('http://localhost:64597/api/unitMaster', body);
   }
 
