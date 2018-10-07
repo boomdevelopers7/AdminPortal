@@ -7,11 +7,13 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 //import  'rxjs/add/operator/toPromise';
-import {MatTableModule,MatCardModule, MatSnackBarModule, MatSortModule, MatPaginatorModule,
+import {MatTableModule,MatCardModule, MatSortModule, MatPaginatorModule,
          MatDialogModule, MatButtonModule} from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTooltipModule} from '@angular/material/tooltip';
-
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+import { ToastrModule } from 'ngx-toastr';
 import { UnitMasterComponent } from './adminPortal/Master/unit-master/unit-master.component';
 import { HeaderComponent } from './adminportal/dashboard/header/header.component';
 import { FooterComponent } from './adminportal/dashboard/footer/footer.component';
@@ -69,8 +71,10 @@ MatCardModule,
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
-    MatSnackBarModule,
-    MatTooltipModule 
+    MatTooltipModule,
+    CommonModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot(), 
     
   ],
   entryComponents:[

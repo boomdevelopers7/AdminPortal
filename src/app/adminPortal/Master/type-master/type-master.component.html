@@ -9,35 +9,23 @@
 
 <mat-table [dataSource]="dataSource" matSort>
 
-  <ng-container matColumnDef="itemId">
+  <ng-container matColumnDef="typeId">
     <mat-header-cell *matHeaderCellDef mat-sort-header>No</mat-header-cell>
-    <mat-cell *matCellDef=" let item">{{item.itemId}}</mat-cell>
+    <mat-cell *matCellDef=" let item">{{item.typeId}}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="itemName">
+  <ng-container matColumnDef="typeName">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-    <mat-cell class="itemName-cell" *matCellDef=" let item">{{item.itemName}}</mat-cell>
+    <mat-cell class="itemName-cell" *matCellDef=" let item">{{item.typeName}}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="itemQuantity">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</mat-header-cell>
-    <mat-cell *matCellDef=" let item">{{item.itemQuantity}}</mat-cell>
+  <ng-container matColumnDef="typeDescription">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
+    <mat-cell *matCellDef=" let item">{{item. typeDescription}}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="itemPrice">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
-      <mat-cell *matCellDef=" let item">{{item.itemPrice}}</mat-cell>
-    </ng-container>
-
-  <ng-container matColumnDef="unit">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Unit</mat-header-cell>
-    <mat-cell *matCellDef=" let item">{{item.unitMaster.unitName}}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="type">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Type</mat-header-cell>
-      <mat-cell *matCellDef=" let item">{{item.typeMaster.typeName}}</mat-cell>
-    </ng-container>
-  
+ 
+ 
 
   <ng-container matColumnDef="update">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>

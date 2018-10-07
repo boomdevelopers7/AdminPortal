@@ -1,0 +1,21 @@
+<form class="form" #areaForm="ngForm" (ngSubmit)="onSubmit(areaForm)">
+  <p class='msg_success'>{{msg}}</p>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-12">
+        <input name="areaName" class="form-control" #areaName="ngModel" [(ngModel)]="areamasterService.selectArea.areaName"
+          placeholder="Area Name" required>
+        <div class="validation-error" *ngIf=" areaName.invalid && areaName.touched">Required Feild</div>
+      </div>
+    </div>
+    <input name="areaId" value="0" style=" visibility: hidden;"  class="form-control" #areaId="ngModel" [(ngModel)]="areamasterService.selectArea.areaId">
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <button (click)="onCloseConfirm()" matTooltip="Submit Record" [disabled]="!areaForm.valid" type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
+    </div>
+    <div class="col-md-6">
+      <button type="button" (click)="resetForm(areaForm)" matTooltip="Reset Form" class="btn btn-lg btn-block btn-secondary">Reset</button>
+    </div>
+  </div>
+</form>
