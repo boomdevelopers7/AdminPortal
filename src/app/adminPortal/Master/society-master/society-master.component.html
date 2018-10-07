@@ -1,0 +1,40 @@
+<button mat-riased-button matTooltip="Add New Record" (click)="onAddDialog()" type="button" class="btn  btn-lg">Add New</button>
+
+<div class="search-box">
+  <input matInput type="text" matTooltip="Search Record" (keyup)="applyFilter($event.target.value)" class="search-text" placeholder="Search">
+  <a class="search-btn">
+    <i class="fas fa-search"></i>
+  </a>
+</div>
+
+<mat-table [dataSource]="dataSource" matSort>
+
+  <ng-container matColumnDef="societyId">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>No</mat-header-cell>
+    <mat-cell *matCellDef=" let item">{{item.societyId}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="societyName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+    <mat-cell class="itemName-cell" *matCellDef=" let item">{{item.societyName}}</mat-cell>
+  </ng-container>
+ 
+ 
+ 
+
+  <ng-container matColumnDef="update">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef=" let item"  matTooltip="Update Record" (click)="onUpdateDialog(item)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef=" let item" matTooltip="Delete Record" (click)="onDeleteDialog(item)"><i class="fa fa-trash" aria-hidden="false"></i></mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<mat-paginator [length]="100" [pageSize]="8" [pageSizeOptions]="[10, 25, 100]" showFirstLastButtons>
+</mat-paginator>
