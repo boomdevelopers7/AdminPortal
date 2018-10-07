@@ -1,4 +1,5 @@
 import { unitMaster } from '../../model/master/unit.model';
+import { TypeMaster } from '../../model/master/type-master';
 export class ItemMaster {
     itemId: number;
     itemName: string;
@@ -6,6 +7,10 @@ export class ItemMaster {
     itemUnit: string;
     itemPrice: number;
     unitId: number;
-    unitMaster: unitMaster;
+    typeId: number;
+    unitMaster: unitMaster; 
+   
+    typeMaster:  TypeMaster; 
+
 }
 

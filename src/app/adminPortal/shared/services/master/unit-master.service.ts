@@ -17,8 +17,6 @@ selectUnit : unitMaster;
     const url='http://localhost:64597/api/unitMaster';
     this.dataList=this.http.get<unitMaster[]>(url);
      return this.http.get<unitMaster[]>(url);
-
-
   }
   postUnit(ut : unitMaster):Observable<unitMaster[]>{
     this.selectUnit={

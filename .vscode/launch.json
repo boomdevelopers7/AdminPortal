@@ -4,7 +4,10 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+<<<<<<< HEAD
         
+=======
+>>>>>>> 35f958a9ac3a32d132009ed0046244c5931cdf0d
         {
             "type": "chrome",
             "request": "launch",
