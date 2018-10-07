@@ -25,7 +25,9 @@ export class ItemMasterService {
       itemUnit: ut.itemUnit,
       itemPrice: ut.itemPrice,
       unitId: ut.unitId,
-      unitMaster: ut.unitMaster
+      unitMaster: ut.unitMaster,
+      typeId : ut.typeId,
+      typeMaster : ut.typeMaster
     }
     return this.http.post<ItemMaster[]>('http://localhost:64597/api/itemMaster', body);
   }

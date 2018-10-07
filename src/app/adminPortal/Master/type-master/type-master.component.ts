@@ -1,17 +1,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatTableDataSource, MatPaginator, MatDialog } from '@angular/material';
-import { ItemMasterService } from '../../shared/services/master/item-master.service';
-import { AddItemComponent } from './add-item/add-item.component';
-import { ItemMaster } from '../../shared/model/master/item.model';
-
+import { TypeMasterService } from '../../shared/services/master/type-master.service';
+import { TypeMaster } from '../../shared/model/master/type-master';
+import { AddTypeComponent } from './add-type/add-type.component';
 @Component({
-  selector: 'app-item-master',
-  templateUrl: './item-master.component.html',
-  styleUrls: ['./item-master.component.css']
+  selector: 'app-type-master',
+  templateUrl: './type-master.component.html',
+  styleUrls: ['./type-master.component.css']
 })
-export class ItemMasterComponent implements OnInit {
-  constructor(private itemmasterservice: ItemMasterService,  public dialog: MatDialog) { }
-  displayedColumns = ['itemId', 'itemName', 'itemQuantity','itemPrice','unit','type','update', 'delete'];
+export class TypeMasterComponent implements OnInit {
+
+ 
+
+  constructor(private typemasterservice:  TypeMasterService,  public dialog: MatDialog) { }
+  displayedColumns = ['typeId','typeName', 'typeDescription', 'update', 'delete'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -19,7 +21,7 @@ export class ItemMasterComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   ngOnInit() {
-    this.itemmasterservice.loadData().subscribe(result => {
+    this.typemasterservice.loadData().subscribe(result => {
       this.dataSource = new MatTableDataSource(result);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -27,7 +29,7 @@ export class ItemMasterComponent implements OnInit {
   }
   dialogResult = "";
   onAddDialog() {
-    let dialogRef = this.dialog.open(AddItemComponent, {
+    let dialogRef = this.dialog.open(AddTypeComponent, {
       width: '600',
       data: 'this text'
     });
@@ -37,9 +39,9 @@ export class ItemMasterComponent implements OnInit {
       this.dialogResult = result;
     })
   }
-  onUpdateDialog(item: ItemMaster) {
-    this.itemmasterservice.selectItem = Object.assign({}, item);
-    let dialogRef = this.dialog.open(AddItemComponent, {
+  onUpdateDialog(item: TypeMaster) {
+    this.typemasterservice.selectType = Object.assign({}, item);
+    let dialogRef = this.dialog.open(AddTypeComponent, {
       width: '900',
       data: 'this text'
     });
@@ -49,13 +51,13 @@ export class ItemMasterComponent implements OnInit {
       this.dialogResult = result;
     })
   }
-  onDeleteDialog(item: ItemMaster) {
+  onDeleteDialog(item: TypeMaster) {
     if (confirm('Are u sure') == true) {
-      this.itemmasterservice.Delete(item).subscribe(x => {
+      this.typemasterservice.Delete(item).subscribe(x => {
         this.ngOnInit();
-        this.itemmasterservice.getItemDataList();
+        this.typemasterservice.getTypeDataList();
       })
     }
   }
-}
 
+}

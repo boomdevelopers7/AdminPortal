@@ -1,34 +1,43 @@
 import { Component, OnInit, Inject, ChangeDetectorRef } from '@angular/core';
-import { MAT_DIALOG_DATA,  MatDialogRef  } from '@angular/material';
+import { MAT_DIALOG_DATA,  MatDialogRef, MatSnackBar  } from '@angular/material';
 import { NgForm } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { Router } from '@angular/router';
 import { UnitService } from '../../../shared/services/master/unit-master.service';
 import { unitMaster } from '../../../shared/model/master/unit.model';
 import { ItemMasterService } from '../../../shared/services/master/item-master.service';
-import { ToastrService } from 'ngx-toastr';
+import { TypeMasterService } from '../../../shared/services/master/type-master.service';
+import { TypeMaster } from '../../../shared/model/master/type-master';
 
-@Component({
+  @Component({
   selector: 'app-add-item',
   templateUrl: './add-item.component.html',
   styleUrls: ['./add-item.component.css']
 })
 export class AddItemComponent implements OnInit {
   constructor(private itemmasterService: ItemMasterService, 
-    private unitService: UnitService,private toastrService: ToastrService,
+    private unitService: UnitService,public snackBar: MatSnackBar,
+    private typemasterService : TypeMasterService,
     private router: Router, private changeDetectorRefs: ChangeDetectorRef,
     public thisdialogRef: MatDialogRef<AddItemComponent>, @Inject(MAT_DIALOG_DATA) public data: string) {
     this.unitService.getUnitDataList().subscribe(data => this.units = data);
+    this. typemasterService.getTypeDataList().subscribe(data => this.types = data);
   }
-
-  showSuccess() {
-    this.toastrService.success('Hello world!', 'Toastr fun!');
+ 
+  
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open( 'New Record Added Successfully', action, {
+      duration: 2000,
+    });
   }
   ngOnInit() {
     this.resetForm();
   }
   units: unitMaster[];
   selectUnit: number;
+
+  types:  TypeMaster[];
+  selectType: number;
 
   resetForm(form?: NgForm) {
     if (form != null)
@@ -41,7 +50,9 @@ export class AddItemComponent implements OnInit {
         itemUnit: '',
         itemPrice: null,
         unitId: null,
-        unitMaster: null
+        unitMaster: null,
+        typeId : null,
+        typeMaster : null
       }
     }
   }
@@ -55,7 +66,7 @@ export class AddItemComponent implements OnInit {
       })
   }
   onCloseConfirm() {
-    this.thisdialogRef.close('conf irm');
+    this.thisdialogRef.close('confirm');
   }
 
  
