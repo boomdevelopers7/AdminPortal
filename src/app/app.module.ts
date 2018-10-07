@@ -22,9 +22,14 @@ import { AddItemComponent } from './adminPortal/Master/item-master/add-item/add-
 import { AddUnitDataComponent } from './adminPortal/Master/unit-master/add-unit-data/add-unit-data.component';
 // import { UpdateUnitDataComponent } from './adminPortal/Master/unit-master/update-unit-data/update-unit-data.component';
 import { DeleteUnitDataComponent } from './adminPortal/Master/unit-master/delete-unit-data/delete-unit-data.component';
+import { SupplierComponent } from './adminPortal/Master/supplier/supplier.component';
+import { AddSupplierComponent } from './adminPortal/Master/supplier/add-supplier/add-supplier.component';
+import { CustomerMasterComponent } from './adminPortal/Master/customer-master/customer-master.component';
+import { AddCustomerComponent } from './adminPortal/Master/customer-master/add-customer/add-customer.component';
 const appRoutes: Routes=[
   { path: 'app-unit-master', component: UnitMasterComponent },
   { path: 'app-item-master', component: ItemMasterComponent },
+  { path: 'app-supplier', component: SupplierComponent },
   // { path: 'app-unit-master', component: UnitMasterComponent },
   { path:'', redirectTo: 'app-menu', pathMatch: 'full' }
 ]
@@ -45,7 +50,11 @@ const appRoutes: Routes=[
     AddItemComponent,
     AddUnitDataComponent,
     // UpdateUnitDataComponent,
-    DeleteUnitDataComponent
+    DeleteUnitDataComponent,
+    SupplierComponent,
+    AddSupplierComponent,
+    CustomerMasterComponent,
+    AddCustomerComponent
   ],
   imports: [
     HttpModule,    
@@ -68,10 +77,12 @@ MatCardModule,
     AddUnitDataComponent,
     // UpdateUnitDataComponent,
     DeleteUnitDataComponent,
-    AddItemComponent
+    AddItemComponent,
+    AddSupplierComponent
 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
