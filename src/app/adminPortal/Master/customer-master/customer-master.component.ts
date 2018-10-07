@@ -10,7 +10,7 @@ import { Customer } from '../../shared/model/master/customer.model';
   styleUrls: ['./customer-master.component.css']
 })
 
-export class ItemMasterComponent implements OnInit {
+export class CustomerMasterComponent implements OnInit {
   constructor(private customerservice: CustomerService,  public dialog: MatDialog,public snackBar: MatSnackBar) { }
   displayedColumns = ['custId', 'custName', 'custCity', 'custArea','custSociety','flat', 'custMobNo1','custMobNo2', 'update', 'delete'];
   dataSource = new MatTableDataSource();

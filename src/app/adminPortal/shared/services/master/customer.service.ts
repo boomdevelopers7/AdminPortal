@@ -32,10 +32,10 @@ export class CustomerService {
     }
     return this.http.post<Customer[]>('http://localhost:64597/api/customers', body);
   }
-  getItemDataList(): Observable<Customer[]> {
+  getCustomerDataList(): Observable<Customer[]> {
     return this.http.get<Customer[]>('http://localhost:64597/api/customers');
   }
   Delete(cust: Customer) {
-    return this.http.delete<Customer[]>('http://localhost:64597/api/customers/' + ut.itemId);
+    return this.http.delete<Customer[]>('http://localhost:64597/api/customers/' + cust.custId);
   }
 }

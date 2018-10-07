@@ -22,27 +22,18 @@ import { MenuComponent } from './adminPortal/Dashboard/Sidebar/menu.component';
 import { ItemMasterComponent } from './adminPortal/Master/item-master/item-master.component';
 import { AddItemComponent } from './adminPortal/Master/item-master/add-item/add-item.component';
 import { AddUnitDataComponent } from './adminPortal/Master/unit-master/add-unit-data/add-unit-data.component';
-// import { UpdateUnitDataComponent } from './adminPortal/Master/unit-master/update-unit-data/update-unit-data.component';
 import { DeleteUnitDataComponent } from './adminPortal/Master/unit-master/delete-unit-data/delete-unit-data.component';
-<<<<<<< HEAD
 import { AddcityDataComponent } from './adminPortal/Master/city-master/add-city-data/add-city-data.component';
 import { cityMasterComponent } from './adminPortal/Master/city-master/city-master.component';
-// import {cityMasterComponent} from './adminPortal/Master/city-master/city-master.component'
+import { SupplierComponent } from './adminPortal/Master/supplier/supplier.component';
+import { AddSupplierComponent } from './adminPortal/Master/supplier/add-supplier/add-supplier.component';
+import { FlatMasterComponent } from './adminPortal/Master/flat-master/flat-master.component';
+import { AddCustomerComponent } from './adminPortal/Master/customer-master/add-customer/add-customer.component';
+import { CustomerMasterComponent } from './adminPortal/Master/customer-master/customer-master.component';
 const appRoutes: Routes=[
   { path: 'app-unit-master', component: UnitMasterComponent },
   { path: 'app-item-master', component: ItemMasterComponent },
   { path: 'app-city-master', component: cityMasterComponent },
-=======
-import { SupplierComponent } from './adminPortal/Master/supplier/supplier.component';
-import { AddSupplierComponent } from './adminPortal/Master/supplier/add-supplier/add-supplier.component';
-import { CustomerMasterComponent } from './adminPortal/Master/customer-master/customer-master.component';
-import { AddCustomerComponent } from './adminPortal/Master/customer-master/add-customer/add-customer.component';
-const appRoutes: Routes=[
-  { path: 'app-unit-master', component: UnitMasterComponent },
-  { path: 'app-item-master', component: ItemMasterComponent },
-  { path: 'app-supplier', component: SupplierComponent },
->>>>>>> 35f958a9ac3a32d132009ed0046244c5931cdf0d
-  // { path: 'app-unit-master', component: UnitMasterComponent },
   { path:'', redirectTo: 'app-menu', pathMatch: 'full' }
 ]
 
@@ -58,20 +49,16 @@ const appRoutes: Routes=[
     FooterComponent,
     MenuComponent,
     SettingComponent,
-    //UpdateUnitDataComponent,
     UnitMasterComponent,
     AddItemComponent,
     AddUnitDataComponent,
-    // UpdateUnitDataComponent,
     DeleteUnitDataComponent,
-<<<<<<< HEAD
-    AddcityDataComponent
-=======
+    AddcityDataComponent,
     SupplierComponent,
     AddSupplierComponent,
-    CustomerMasterComponent,
-    AddCustomerComponent
->>>>>>> 35f958a9ac3a32d132009ed0046244c5931cdf0d
+    FlatMasterComponent,
+     CustomerMasterComponent,
+     AddCustomerComponent
   ],
   imports: [
     HttpModule,    
