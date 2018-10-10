@@ -8,7 +8,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 //import  'rxjs/add/operator/toPromise';
 import {MatTableModule,MatCardModule, MatSortModule, MatPaginatorModule,
-         MatDialogModule, MatButtonModule} from '@angular/material';
+         MatDialogModule, MatButtonModule, MatSnackBarModule} from '@angular/material';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,6 +34,8 @@ import { SocietyMasterComponent } from './adminPortal/Master/society-master/soci
 import { AddSocietyComponent } from './adminPortal/Master/society-master/add-society/add-society.component';
 import { TypeMasterComponent } from './adminPortal/Master/type-master/type-master.component';
 import { AddTypeComponent } from './adminPortal/Master/type-master/add-type/add-type.component';
+import { AddFlatComponent } from './adminPortal/Master/flat-master/add-flat/add-flat.component';
+// import { CustomerMasterComponent } from './adminPortal/Master/customer-master/customer-master.component';
 
 const appRoutes: Routes=[
   { path: 'app-unit-master', component: UnitMasterComponent },
@@ -43,6 +45,7 @@ const appRoutes: Routes=[
   { path: 'app-society-master', component: SocietyMasterComponent },
   { path: 'app-city-master', component: cityMasterComponent },
   { path: 'app-suplier-master', component: SupplierComponent },
+  { path: 'app-flat-master', component: FlatMasterComponent },
   { path:'', redirectTo: 'app-menu', pathMatch: 'full' }
 ]
 
@@ -71,7 +74,9 @@ const appRoutes: Routes=[
     TypeMasterComponent,
     AddTypeComponent,
     SocietyMasterComponent,
-    AddSocietyComponent
+    AddSocietyComponent,
+    AddFlatComponent,
+    // CustomerMasterComponent
   ],
   imports: [
     HttpModule,    
@@ -89,7 +94,8 @@ MatCardModule,
     MatTooltipModule,
     CommonModule,
     BrowserAnimationsModule, 
-    ToastrModule.forRoot(), 
+    ToastrModule.forRoot(),
+    MatSnackBarModule 
     
   ],
   entryComponents:[
@@ -101,7 +107,7 @@ MatCardModule,
     AddSocietyComponent,
     AddTypeComponent,
     AddcityDataComponent,
-
+    AddFlatComponent,
     AddSupplierComponent
 
 

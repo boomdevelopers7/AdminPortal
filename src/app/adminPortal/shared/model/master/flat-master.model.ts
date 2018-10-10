@@ -1,7 +1,7 @@
 import { SocietyMaster } from "./society-master";
 
 export class FlatMaster {
-    flatId:number;
+    flatNo:number;
     flatName:string;
     societyId:number;
     SocietyMaster:SocietyMaster;
