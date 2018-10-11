@@ -11,7 +11,7 @@ import { AddFlatComponent } from './add-flat/add-flat.component';
 })
 export class FlatMasterComponent implements OnInit {
   constructor(private flatMasterService: FlatMasterService,  public dialog: MatDialog) { }
-  displayedColumns = ['flatNo', 'flatName','societyName','update', 'delete'];
+  displayedColumns = ['flatId', 'flatNo','societyName','update', 'delete'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

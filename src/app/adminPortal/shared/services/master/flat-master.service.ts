@@ -21,8 +21,8 @@ export class FlatMasterService {
    Observable<FlatMaster[]> {
     console.log(ft);
     const body: FlatMaster = {
-      flatNo: ft.flatNo,
-      flatName : ft.flatName,
+      flatId: ft.flatId,
+      flatNo : ft.flatNo,
       societyId: ft.societyId,
       SocietyMaster : ft.SocietyMaster
       
@@ -34,6 +34,6 @@ export class FlatMasterService {
     return this.http.get<FlatMaster[]>('http://localhost:64597/api/flatMasters');
   }
   Delete(ft: FlatMaster) {
-    return this.http.delete<FlatMaster[]>('http://localhost:64597/api/flatMasters/' + ft.flatNo);
+    return this.http.delete<FlatMaster[]>('http://localhost:64597/api/flatMasters/' + ft.flatId);
   }
 }

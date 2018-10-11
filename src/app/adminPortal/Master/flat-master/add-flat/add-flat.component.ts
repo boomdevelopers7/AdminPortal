@@ -41,8 +41,8 @@ export class AddFlatComponent implements OnInit {
       form.reset();
     if (isEmptyObject(this.flatMasterService.selectFlat)) {
       this.flatMasterService.selectFlat = {
+        flatId: 0,
         flatNo: 0,
-        flatName: '',
         societyId : null,
         SocietyMaster : null
       }
@@ -52,6 +52,7 @@ export class AddFlatComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.flatMasterService.postflatMaster(form.value)
       .subscribe(data => {
+        this.ngOnInit();
         this.msg = 'success';
         this.changeDetectorRefs.detectChanges();
         this.resetForm(form);

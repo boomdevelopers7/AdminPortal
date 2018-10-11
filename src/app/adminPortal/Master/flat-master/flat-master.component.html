@@ -9,14 +9,14 @@
 
 <mat-table [dataSource]="dataSource" matSort>
 
-  <ng-container matColumnDef="flatNo">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Flat No</mat-header-cell>
-    <mat-cell *matCellDef=" let item">{{item.flatNo}}</mat-cell>
+  <ng-container matColumnDef="flatId">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Flat Id</mat-header-cell>
+    <mat-cell *matCellDef=" let item">{{item.flatId}}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="flatName">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Flat Name</mat-header-cell>
-    <mat-cell class="itemName-cell" *matCellDef=" let item">{{item.flatName}}</mat-cell>
+  <ng-container matColumnDef="flatNo">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Flat Number</mat-header-cell>
+    <mat-cell class="itemName-cell" *matCellDef=" let item">{{item.flatNo}}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="societyName">
