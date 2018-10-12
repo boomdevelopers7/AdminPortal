@@ -30,7 +30,7 @@ export class AddCustomerComponent implements OnInit {
     this.resetForm();
   }
   flats: FlatMaster[];
-  selectSociety: number;
+  selectFlat: number;
 
   
 
@@ -48,8 +48,8 @@ export class AddCustomerComponent implements OnInit {
         custMobNo2:'',
         custGeoLocation:'',
 
-        flatNo : null,
-        flatMaster : null
+        flatId : null,
+        FlatMaster : null
       }
     }
   }
@@ -57,6 +57,7 @@ export class AddCustomerComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.customerMasterService.postCustomerMaster(form.value)
       .subscribe(data => {
+        this.ngOnInit();
         this.msg = 'success';
         this.changeDetectorRefs.detectChanges();
         this.resetForm(form);

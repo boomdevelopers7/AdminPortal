@@ -11,7 +11,7 @@ import { AddCustomerComponent } from './add-customer/add-customer.component';
 })
 export class CustomerMasterComponent implements OnInit {
   constructor(private customerMasterService: CustomerMasterService,  public dialog: MatDialog) { }
-  displayedColumns = ['custId', 'custName','custCity','custArea','custSociety','flatName','custMobNo1','custMobNo2','custGeoLocation','update', 'delete'];
+  displayedColumns = ['custId', 'custName','custCity','custArea','custSociety','flatNo','custMobNo1','custMobNo2','custGeoLocation','update', 'delete'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -47,7 +47,7 @@ export class CustomerMasterComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.ngOnInit();
-      console.log('dialog closed: ${result}');
+    console.log('dialog closed: ${result}');
       this.dialogResult = result;
     })
   }

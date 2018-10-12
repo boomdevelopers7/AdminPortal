@@ -10,6 +10,6 @@ export class CustomerMaster{
     custMobNo2:string;
     custGeoLocation:string;
 
-    flatNo:number;
+    flatId:number;
     FlatMaster:FlatMaster;
 }

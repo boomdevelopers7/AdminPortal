@@ -30,7 +30,7 @@ export class CustomerMasterService {
       custMobNo2 : ft.custMobNo2,
       custGeoLocation : ft.custGeoLocation,
 
-      flatNo: ft.flatNo,
+      flatId: ft.flatId,
       FlatMaster : ft.FlatMaster
       
    
@@ -41,6 +41,7 @@ export class CustomerMasterService {
     return this.http.get<CustomerMaster[]>('http://localhost:64597/api/customerMasters');
   }
   Delete(ft: CustomerMaster) {
-    return this.http.delete<CustomerMaster[]>('http://localhost:64597/api/customerMasters/' + ft.flatNo);
+    return this.http.delete<CustomerMaster[]>('http://localhost:64597/api/customerMasters/' + ft.custId);
   }
 }
+
