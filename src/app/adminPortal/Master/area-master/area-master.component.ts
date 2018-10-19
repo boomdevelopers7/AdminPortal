@@ -11,7 +11,7 @@ import { AddAreaComponent } from './add-area/add-area.component';
 export class AreaMasterComponent implements OnInit {
 
   constructor(private areamasterservice:  AreaMasterService,  public dialog: MatDialog) { }
-  displayedColumns = ['areaId','areaName', 'update', 'delete'];
+  displayedColumns = ['areaId','areaName','city', 'update', 'delete'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

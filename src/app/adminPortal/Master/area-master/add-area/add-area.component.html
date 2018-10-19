@@ -2,7 +2,7 @@
   <p class='msg_success'>{{msg}}</p>
   <div class="form-group">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6">
       <label>Area name</label>
         <input name="areaName" class="form-control" #areaName="ngModel" [(ngModel)]="areamasterService.selectArea.areaName"
           placeholder="Area Name" required pattern="[a-zA-Z][a-zA-Z]+">
@@ -14,6 +14,15 @@
           Enter only character.
         </div>
       </div>
+      </div>
+      <div class="col-md-6">
+          <label>City name</label>
+            <select required name="cityId" #refCity="ngModel" class="form-control" [(ngModel)]="citymasterService.selectCity">
+              <option value="undefined">Select City</option>
+              <option *ngFor="let city of citys" [ngValue]="city.cityId">
+                {{city.cityName}}
+              </option>
+            </select> 
       </div>
     </div>
     <input name="areaId" value="0" style=" visibility: hidden;"  class="form-control" #areaId="ngModel" [(ngModel)]="areamasterService.selectArea.areaId">

@@ -12,7 +12,7 @@ import { AddSocietyComponent } from './add-society/add-society.component';
 export class SocietyMasterComponent implements OnInit {
 
   constructor(private societymasterservice:  SocietyMasterService,  public dialog: MatDialog) { }
-  displayedColumns = ['societyId','societyName', 'update', 'delete'];
+  displayedColumns = ['societyId','societyName','area', 'update', 'delete'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

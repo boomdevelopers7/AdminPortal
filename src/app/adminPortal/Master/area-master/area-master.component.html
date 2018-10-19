@@ -19,6 +19,11 @@
     <mat-cell class="itemName-cell" *matCellDef=" let item">{{item.areaName}}</mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="city">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>city Name</mat-header-cell>
+    <mat-cell *matCellDef=" let item">{{item.cityMaster.cityName}}</mat-cell>
+  </ng-container>
+
   <ng-container matColumnDef="update">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>
     <mat-cell *matCellDef=" let item"  matTooltip="Update Record" (click)="onUpdateDialog(item)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></mat-cell>

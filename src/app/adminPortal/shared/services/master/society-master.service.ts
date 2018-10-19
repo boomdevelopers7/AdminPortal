@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SocietyMaster } from '../../model/master/society-master';
+import { AreaMaster } from '../../model/master/area-master';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,10 +22,12 @@ export class SocietyMasterService {
     console.log(ut);
     const body: SocietyMaster = {
       societyId: ut.societyId,
-      societyName : ut.societyName
-      
-   
+      societyName : ut.societyName,
+      areaId : ut.areaId, 
+      areaMaster:ut.areaMaster
     }
+    this. selectSociety=null;
+
     return this.http.post<SocietyMaster[]>('http://localhost:64597/api/societyMaster', body);
   }
   getSocietyDataList(): Observable<SocietyMaster[]> {

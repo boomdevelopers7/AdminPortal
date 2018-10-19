@@ -2,7 +2,7 @@
   <p class='msg_success'>{{msg}}</p>
   <div class="form-group">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6">
       <label>Society name</label>
         <input name="societyName" class="form-control" #societyName="ngModel" [(ngModel)]="societymasterService.selectSociety.societyName"
         placeholder="Type Name" required pattern="[a-zA-Z][a-zA-Z]+">
@@ -15,8 +15,17 @@
           </div>
         </div>
 
-        <input name="societyId"  value="0" style=" visibility: hidden;" class="form-control" #societyName="ngModel" [(ngModel)]="societymasterService.selectSociety.societyId">
       </div>
+
+      <div class="col-md-6">
+      <label>Area name</label>
+        <select required name="areaId" #refArea="ngModel" class="form-control" [(ngModel)]="areamasterService.selectArea">
+          <option value="undefined">Select Area Name</option>
+          <option *ngFor="let area of areas" [ngValue]="area.areaId">
+            {{area.areaName}}
+          </option>
+        </select> </div>
+        <input name="societyId"  value="0" style=" visibility: hidden;" class="form-control" #societyName="ngModel" [(ngModel)]="societymasterService.selectSociety.societyId">
  
     </div>
   </div>

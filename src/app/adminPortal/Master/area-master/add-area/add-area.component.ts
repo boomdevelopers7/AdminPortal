@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { Router } from '@angular/router';
 import { AreaMasterService } from '../../../shared/services/master/area-master.service';
+import { cityMasterService } from '../../../shared/services/master/cityMaster.service';
+import { cityMaster } from '../../../shared/model/master/city.model';
 
 @Component({
   selector: 'app-add-area',
@@ -12,9 +14,13 @@ import { AreaMasterService } from '../../../shared/services/master/area-master.s
 })
 export class AddAreaComponent implements OnInit {
 
-  constructor(private areamasterService: AreaMasterService, 
+  constructor(private areamasterService: AreaMasterService,
+    private citymasterService : cityMasterService, 
     private router: Router, private changeDetectorRefs: ChangeDetectorRef,
     public thisdialogRef: MatDialogRef<AddAreaComponent>, @Inject(MAT_DIALOG_DATA) public data: string) {
+
+    this.citymasterService.getcityDataList().subscribe(data => this.citys = data);
+
     
   }
  
@@ -22,6 +28,9 @@ export class AddAreaComponent implements OnInit {
     this.resetForm();
   }
   
+  citys:  cityMaster[];
+  selectCity: number;
+
   resetForm(form?: NgForm) {
     if (form != null)
       form.reset();

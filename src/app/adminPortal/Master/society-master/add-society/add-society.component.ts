@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { Router } from '@angular/router';
 import { SocietyMasterService } from '../../../shared/services/master/society-master.service';
+import { AreaMasterService } from '../../../shared/services/master/area-master.service';
+import { AreaMaster } from '../../../shared/model/master/area-master';
 
 @Component({
   selector: 'app-add-society',
@@ -12,23 +14,31 @@ import { SocietyMasterService } from '../../../shared/services/master/society-ma
 })
 export class AddSocietyComponent implements OnInit {
 
-  constructor(private societymasterService: SocietyMasterService, 
+  constructor(private societymasterService: SocietyMasterService,
+    private areamasterService: AreaMasterService, 
     private router: Router, private changeDetectorRefs: ChangeDetectorRef,
     public thisdialogRef: MatDialogRef<AddSocietyComponent>, @Inject(MAT_DIALOG_DATA) public data: string) {
     
+    this. areamasterService. getAreaDataList().subscribe(data => this.areas = data);
+
   }
  
   ngOnInit() {
     this.resetForm();
   }
   
+  areas: AreaMaster[];
+  selectArea: number;
+
   resetForm(form?: NgForm) {
     if (form != null)
       form.reset();
     if (isEmptyObject(this.societymasterService.selectSociety)) {
       this.societymasterService.selectSociety = {
         societyId: 0,
-        societyName: ''
+        societyName: '',
+        areaId: 0,
+        areaMaster: null
         
       }
     }

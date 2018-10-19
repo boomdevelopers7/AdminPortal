@@ -50,6 +50,7 @@ export class ItemMasterComponent implements OnInit {
     })
   }
   onDeleteDialog(item: ItemMaster) {
+  
     if (confirm('Are u sure') == true) {
       this.itemmasterservice.Delete(item).subscribe(x => {
         this.ngOnInit();
@@ -58,4 +59,3 @@ export class ItemMasterComponent implements OnInit {
     }
   }
 }
-

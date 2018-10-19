@@ -19,7 +19,10 @@
     <mat-cell class="itemName-cell" *matCellDef=" let item">{{item.societyName}}</mat-cell>
   </ng-container>
  
- 
+  <ng-container matColumnDef="area">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>area Name</mat-header-cell>
+    <mat-cell *matCellDef=" let item">{{item.areaMaster.areaName}}</mat-cell>
+  </ng-container>
  
 
   <ng-container matColumnDef="update">
