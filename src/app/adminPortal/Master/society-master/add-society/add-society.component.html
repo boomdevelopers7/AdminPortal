@@ -19,7 +19,7 @@
 
       <div class="col-md-6">
       <label>Area name</label>
-        <select required name="areaId" #refArea="ngModel" class="form-control" [(ngModel)]="areamasterService.selectArea">
+        <select required name="areaId" #refArea="ngModel" class="form-control" [(ngModel)]="societymasterService.selectSociety.areaId">
           <option value="undefined">Select Area Name</option>
           <option *ngFor="let area of areas" [ngValue]="area.areaId">
             {{area.areaName}}

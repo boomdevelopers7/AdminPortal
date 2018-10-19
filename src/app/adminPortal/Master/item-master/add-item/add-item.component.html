@@ -53,7 +53,7 @@
     <div class="row">
       <div class="col-md-6">
       <label>Unit name</label>
-        <select required name="unitId" #refUnit="ngModel" class="form-control" [(ngModel)]="unitService.selectUnit">
+        <select required name="unitId" #refUnit="ngModel" class="form-control" [(ngModel)]="itemmasterService.selectItem.unitId">
           <option value="undefined">Select Unit Name</option>
           <option *ngFor="let unit of units" [ngValue]="unit.unitId">
             {{unit.unitName}}
@@ -62,7 +62,7 @@
 
       <div class="col-md-6">
       <label>Type name</label>
-        <select required name="typeId" #refType="ngModel" class="form-control" [(ngModel)]="typemasterService.selectType">
+        <select required name="typeId" #refType="ngModel" class="form-control" [(ngModel)]="itemmasterService.selectItem.typeId">
           <option value="undefined">Select Item Type</option>
           <option *ngFor="let type of types" [ngValue]="type.typeId">
             {{type.typeName}}
