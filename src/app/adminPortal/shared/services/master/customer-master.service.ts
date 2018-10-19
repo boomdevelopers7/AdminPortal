@@ -23,9 +23,9 @@ export class CustomerMasterService {
     const body: CustomerMaster = {
       custId: ft.custId,
       custName : ft.custName,
-      custCity : ft.custCity,
-      custArea : ft.custArea,
-      custSociety : ft.custSociety,
+      cityId : ft.cityId,
+      areaId : ft.areaId,
+      societyId : ft.societyId,
       custMobNo1 : ft.custMobNo1,
       custMobNo2 : ft.custMobNo2,
       custGeoLocation : ft.custGeoLocation,

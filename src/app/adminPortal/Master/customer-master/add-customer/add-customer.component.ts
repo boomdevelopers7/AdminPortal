@@ -6,6 +6,12 @@ import { Router } from '@angular/router';
 import { FlatMaster } from '../../../shared/model/master/flat-master.model';
 import { NgForm } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
+import { cityMasterService } from '../../../shared/services/master/cityMaster.service';
+import { AreaMasterService } from '../../../shared/services/master/area-master.service';
+import { SocietyMasterService } from '../../../shared/services/master/society-master.service';
+import { AreaMaster } from '../../../shared/model/master/area-master';
+import { cityMaster } from '../../../shared/model/master/city.model';
+import { SocietyMaster } from '../../../shared/model/master/society-master';
 declare var $:any;
 
 @Component({
@@ -14,11 +20,16 @@ declare var $:any;
   styleUrls: ['./add-customer.component.css']
 })
 export class AddCustomerComponent implements OnInit {
-  constructor(private customerMasterService: CustomerMasterService, 
+  constructor(private customerMasterService: CustomerMasterService,private cityService : cityMasterService, private areaService : AreaMasterService,
+    private societyService  : SocietyMasterService,
     private flatService: FlatMasterService,public snackBar: MatSnackBar,
     private router: Router, private changeDetectorRefs: ChangeDetectorRef,
     public thisdialogRef: MatDialogRef<AddCustomerComponent>, @Inject(MAT_DIALOG_DATA) public data: string) {
-    this.flatService.getFlatDataList().subscribe(data => this.flats = data);
+      this.cityService.getcityDataList().subscribe(data => this.cities = data);
+      this.areaService.getAreaDataList().subscribe(data => this.areas = data);
+      this.societyService.getSocietyDataList().subscribe(data => this.societis = data);
+      this.flatService.getFlatDataList().subscribe(data => this.flats = data);
+
   }
  
   
@@ -34,8 +45,14 @@ export class AddCustomerComponent implements OnInit {
   flats: FlatMaster[];
   selectFlat: number;
 
-  
+  areas : AreaMaster[];
+  selectArea:number;
 
+  cities : cityMaster[];
+  selectCity:number;
+
+  societis : SocietyMaster[];
+  selectSociety : number;
   resetForm(form?: NgForm) {
     if (form != null)
       form.reset();
@@ -43,9 +60,9 @@ export class AddCustomerComponent implements OnInit {
       this.customerMasterService.selectCustomer = {
         custId: 0,
         custName: '',
-        custCity : '',
-        custArea:'',
-        custSociety:'',
+        cityId : 0,
+        areaId:0,
+        societyId:0,
         custMobNo1:'',
         custMobNo2:'',
         custGeoLocation:'',

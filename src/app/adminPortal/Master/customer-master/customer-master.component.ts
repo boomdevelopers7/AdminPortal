@@ -11,7 +11,7 @@ import { AddCustomerComponent } from './add-customer/add-customer.component';
 })
 export class CustomerMasterComponent implements OnInit {
   constructor(private customerMasterService: CustomerMasterService,  public dialog: MatDialog) { }
-  displayedColumns = ['custId', 'custName','custCity','custArea','custSociety','flatNo','custMobNo1','custMobNo2','custGeoLocation','update', 'delete'];
+  displayedColumns = ['custId', 'custName','cityId','areaId','societyId','flatNo','custMobNo1','custMobNo2','custGeoLocation','update', 'delete'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -27,7 +27,7 @@ export class CustomerMasterComponent implements OnInit {
   }
   dialogResult = "";
   onAddDialog() {
-    
+    this.customerMasterService.selectCustomer =null;
     let dialogRef = this.dialog.open(AddCustomerComponent, {
       width: '900',
       data: 'this text'
