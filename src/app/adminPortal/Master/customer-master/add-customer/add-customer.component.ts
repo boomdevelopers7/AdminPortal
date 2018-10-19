@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { FlatMaster } from '../../../shared/model/master/flat-master.model';
 import { NgForm } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
+declare var $:any;
 
 @Component({
   selector: 'app-add-customer',
@@ -29,6 +30,7 @@ export class AddCustomerComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
   }
+  
   flats: FlatMaster[];
   selectFlat: number;
 
@@ -77,3 +79,8 @@ export class AddCustomerComponent implements OnInit {
 
   }
 }
+
+
+
+  
+  

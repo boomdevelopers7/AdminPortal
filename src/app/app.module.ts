@@ -35,7 +35,8 @@ import { AddSocietyComponent } from './adminPortal/Master/society-master/add-soc
 import { TypeMasterComponent } from './adminPortal/Master/type-master/type-master.component';
 import { AddTypeComponent } from './adminPortal/Master/type-master/add-type/add-type.component';
 import { AddFlatComponent } from './adminPortal/Master/flat-master/add-flat/add-flat.component';
-// import { CustomerMasterComponent } from './adminPortal/Master/customer-master/customer-master.component';
+import { CustomerMasterComponent } from './adminPortal/Master/customer-master/customer-master.component';
+import { AddCustomerComponent } from './adminPortal/Master/customer-master/add-customer/add-customer.component';
 
 const appRoutes: Routes=[
   { path: 'app-unit-master', component: UnitMasterComponent },
@@ -46,6 +47,7 @@ const appRoutes: Routes=[
   { path: 'app-city-master', component: cityMasterComponent },
   { path: 'app-suplier-master', component: SupplierComponent },
   { path: 'app-flat-master', component: FlatMasterComponent },
+  { path: 'app-customer-master', component: CustomerMasterComponent },
   { path:'', redirectTo: 'app-menu', pathMatch: 'full' }
 ]
 
@@ -76,7 +78,8 @@ const appRoutes: Routes=[
     SocietyMasterComponent,
     AddSocietyComponent,
     AddFlatComponent,
-    // CustomerMasterComponent
+    CustomerMasterComponent,
+    AddCustomerComponent
   ],
   imports: [
     HttpModule,    
@@ -108,8 +111,8 @@ MatCardModule,
     AddTypeComponent,
     AddcityDataComponent,
     AddFlatComponent,
-    AddSupplierComponent
-
+    AddSupplierComponent,
+    AddCustomerComponent
 
   ],
   providers: [],

@@ -3,14 +3,29 @@
   <div class="form-group">
     <div class="row">
       <div class="col-md-6">
+      <label>Type name</label>
         <input name="typeName" class="form-control" #typeName="ngModel" [(ngModel)]="typemasterService.selectType.typeName"
-          placeholder="Type Name" required>
-        <div class="validation-error" *ngIf=" typeName.invalid && typeName.touched">Required Feild</div>
+          placeholder="Type Name" required pattern="[a-zA-Z][a-zA-Z]+">
+        <div *ngIf="typeName?.touched" class=" alert-danger">
+        <div *ngIf="typeName.errors?.required">
+         Type name is required
+        </div>
+        <div *ngIf="typeName.errors?.pattern">
+          Enter only character.
+        </div>
+      </div>
       </div>
       <div class="col-md-6">
+      <label>Type description</label>
         <input name="typeDescription" class="form-control" #typeDescription="ngModel" [(ngModel)]="typemasterService.selectType.typeDescription"
-          placeholder="Type Description" required>
-        <div class="validation-error" *ngIf=" typeDescription.invalid && typeDescription.touched">Required Feild</div>
+          placeholder="Type Description" required pattern="[a-zA-Z][a-zA-Z]+">
+          <div *ngIf="typeDescription?.touched" class=" alert-danger">
+        <div *ngIf="typeDescription.errors?.required">
+         Type name is required
+        </div>
+        <div *ngIf="typeDescription.errors?.pattern">
+          Enter only character.
+        </div>
       </div>
     </div>
     <input name="typeId" value="0" style="visibility: collapse;" class="form-control" #typeId="ngModel" [(ngModel)]="typemasterService.selectType.typeId">
@@ -22,5 +37,6 @@
     <div class="col-md-4">
       <button type="button" (click)="resetForm(typeForm)" matTooltip="Reset Form" class="btn btn-lg btn-block btn-secondary">Reset</button>
     </div>
+  </div>
   </div>
 </form>

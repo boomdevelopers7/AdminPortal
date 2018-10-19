@@ -3,8 +3,16 @@
  <div class="form-group row"> 
      
    <div class="col-md-6">
-     <input name="cityName" class="form-control" placeholder="city Name" #cityName="ngModel" [(ngModel)]="cityService.selectcity.cityName" required> 
-     <div class="validation-error" *ngIf="cityName.invalid && cityName.touched">This Field is reuired</div>
+   <label>City name</label>
+     <input name="cityName" class="form-control" placeholder="city Name" #cityName="ngModel" [(ngModel)]="cityService.selectcity.cityName" required pattern="[a-zA-Z][a-zA-Z]+"> 
+     <div *ngIf="cityName?.touched" class=" alert-danger">
+        <div *ngIf="cityName.errors?.required">
+         City name is required
+        </div>
+        <div *ngIf="cityName.errors?.pattern">
+          Enter only character.
+        </div>
+      </div>
    </div>
    
          <input name="cityId" value="0" style="visibility: collapse;" class="form-control"  #cityId="ngModel" [(ngModel)]="cityService.selectcity.cityId"> 

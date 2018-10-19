@@ -3,10 +3,19 @@
   <div class="form-group">
     <div class="row">
       <div class="col-md-12">
+      <label>Society name</label>
         <input name="societyName" class="form-control" #societyName="ngModel" [(ngModel)]="societymasterService.selectSociety.societyName"
-        placeholder="Type Name" required>
+        placeholder="Type Name" required pattern="[a-zA-Z][a-zA-Z]+">
+        <div *ngIf="societyName?.touched" class=" alert-danger">
+          <div *ngIf="societyName.errors?.required">
+         Society Name is required
+          </div>
+          <div *ngIf="societyName.errors?.pattern">
+            Enter only character.
+          </div>
+        </div>
+
         <input name="societyId"  value="0" style=" visibility: hidden;" class="form-control" #societyName="ngModel" [(ngModel)]="societymasterService.selectSociety.societyId">
-        <div class="validation-error" *ngIf=" typeName.invalid && typeName.touched">Required Feild</div>
       </div>
  
     </div>

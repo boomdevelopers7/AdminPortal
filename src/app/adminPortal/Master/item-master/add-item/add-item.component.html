@@ -3,31 +3,56 @@
   <div class="form-group">
     <div class="row">
       <div class="col-md-12">
+      <label>Item name</label>
         <input name="itemName" class="form-control" #itemName="ngModel" [(ngModel)]="itemmasterService.selectItem.itemName"
-          placeholder="Item Name" required>
-        <div class="validation-error" *ngIf=" itemName.invalid && itemName.touched">Required Feild</div>
+          placeholder="Item Name" required pattern="[a-zA-Z][a-zA-Z]+">
+<div *ngIf="itemName?.touched" class=" alert-danger">
+        <div *ngIf="itemName.errors?.required">
+         Name is required
+        </div>
+        <div *ngIf="itemName.errors?.pattern">
+          Enter only character.
+        </div>
+      </div>
       </div>
     </div>
     <br>
     <br>
     <div class="row">
       <div class="col-md-6">
+      <label>Item uantity</label>
         <input name="itemQuantity" matTooltip="This Input Feild Have Only Nummbers" (keypress)="numberOnly($event)"
           class="form-control" #itemQuantity="ngModel" [(ngModel)]="itemmasterService.selectItem.itemQuantity"
-          placeholder="Item Quantity"  required>
-        <div class="validation-error" *ngIf=" itemQuantity.invalid && itemQuantity.touched">Required Feild</div>
+          placeholder="Item Quantity"  required pattern="[0-9]+">
+<div *ngIf="itemQuantity?.touched" class=" alert-danger">
+        <div *ngIf="itemQuantity.errors?.required">
+         Name is required
+        </div>
+        <div *ngIf="itemQuantity.errors?.pattern">
+          Enter only digit.
+        </div>
+      </div>
       </div>
       <div class="col-md-6">
+      <label>Item prise</label>
         <input name="itemPrice" class="form-control" #itemPrice="ngModel" [(ngModel)]="itemmasterService.selectItem.itemPrice"
           placeholder="Item Price" matTooltip="This Input Feild Have Only Nummbers" (keypress)="numberOnly($event)"
-          required>
-        <div class="validation-error" *ngIf=" itemPrice.invalid && itemPrice.touched">Required Feild</div>
+          required pattern="[0-9]+">
+          <div *ngIf="itemPrice?.touched" class=" alert-danger">
+        <div *ngIf="itemPrice.errors?.required">
+         Name is required
+        </div>
+        <div *ngIf="itemPrice.errors?.pattern">
+          Enter only digit.
+        </div>
+      </div>
       </div>
     </div>
     <br>
     <br>
     <div class="row">
       <div class="col-md-6">
+      <label>Unit name</label>
         <select required name="unitId" #refUnit="ngModel" class="form-control" [(ngModel)]="unitService.selectUnit">
           <option value="undefined">Select Unit Name</option>
           <option *ngFor="let unit of units" [ngValue]="unit.unitId">
@@ -36,6 +61,7 @@
         </select> </div>
 
       <div class="col-md-6">
+      <label>Type name</label>
         <select required name="typeId" #refType="ngModel" class="form-control" [(ngModel)]="typemasterService.selectType">
           <option value="undefined">Select Item Type</option>
           <option *ngFor="let type of types" [ngValue]="type.typeId">
