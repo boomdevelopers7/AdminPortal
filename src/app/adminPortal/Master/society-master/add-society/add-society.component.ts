@@ -37,7 +37,7 @@ export class AddSocietyComponent implements OnInit {
       this.societymasterService.selectSociety = {
         societyId: 0,
         societyName: '',
-        areaId: 0,
+        areaId: null,
         areaMaster: null
         
       }
