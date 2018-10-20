@@ -37,7 +37,9 @@ export class AddAreaComponent implements OnInit {
     if (isEmptyObject(this.areamasterService.selectArea)) {
       this.areamasterService.selectArea = {
         areaId: 0,
-        areaName: ''
+        areaName: '',
+        cityId: null,
+        cityMaster: null
         
         
       }

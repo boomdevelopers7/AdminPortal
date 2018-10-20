@@ -28,6 +28,7 @@ export class SocietyMasterComponent implements OnInit {
   }
   dialogResult = "";
   onAddDialog() {
+    this.societymasterservice.selectSociety = null;
     let dialogRef = this.dialog.open(AddSocietyComponent, {
       width: '600',
       data: 'this text'

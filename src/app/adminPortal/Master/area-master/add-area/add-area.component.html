@@ -5,7 +5,7 @@
       <div class="col-md-6">
       <label>Area name</label>
         <input name="areaName" class="form-control" #areaName="ngModel" [(ngModel)]="areamasterService.selectArea.areaName"
-          placeholder="Area Name" required pattern="[a-zA-Z][a-zA-Z]+">
+          placeholder="Area Name" required pattern="[a-zA-Z ]+">
         <div *ngIf="areaName?.touched" class=" alert-danger">
         <div *ngIf="areaName.errors?.required">
          Area Name is required
@@ -17,7 +17,7 @@
       </div>
       <div class="col-md-6">
           <label>City name</label>
-            <select required name="cityId" #refCity="ngModel" class="form-control" [(ngModel)]="citymasterService.selectCity">
+            <select required name="cityId" #refCity="ngModel" class="form-control" [(ngModel)]="areamasterService.selectArea.cityId">
               <option value="undefined">Select City</option>
               <option *ngFor="let city of citys" [ngValue]="city.cityId">
                 {{city.cityName}}

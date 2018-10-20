@@ -1,6 +1,6 @@
 <form class="form" #supplierForm="ngForm" (ngSubmit)="onSubmit(supplierForm)">
      <label>Supplier Name</label>
-     <input class="form-group" name="supName" class="form-control" placeholder="supplier Name" #supName="ngModel" [(ngModel)]="supplierService.selectSupplier.supName" required pattern="[a-zA-Z][a-zA-Z]+"> 
+     <input class="form-group" name="supName" class="form-control" placeholder="supplier Name" #supName="ngModel" [(ngModel)]="supplierService.selectSupplier.supName" required pattern="[a-zA-Z ]+"> 
      <div *ngIf="supName?.touched" class=" alert-danger">
         <div *ngIf="supName.errors?.required">
          Name is required
@@ -11,10 +11,10 @@
       </div>
 <br>
       <label>Supplier Address</label>
-     <input class="form-group" name="supAddress" class="form-control" placeholder="Supplier Address" #supAddress="ngModel" [(ngModel)]="supplierService.selectSupplier.supAddress" required pattern="[a-zA-Z][a-zA-Z]+"> 
+     <input class="form-group" name="supAddress" class="form-control" placeholder="Supplier Address" #supAddress="ngModel" [(ngModel)]="supplierService.selectSupplier.supAddress" required pattern="[a-zA-Z ]+"> 
     <div *ngIf="supAddress?.touched" class=" alert-danger">
         <div *ngIf="supAddress.errors?.required">
-      Address is required
+       Address is required
         </div>
         <div *ngIf="supAddress.errors?.pattern">
           Enter only character.

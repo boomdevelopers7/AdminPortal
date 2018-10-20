@@ -27,6 +27,7 @@ export class AreaMasterComponent implements OnInit {
   }
   dialogResult = "";
   onAddDialog() {
+    this.areamasterservice.selectArea =null;
     let dialogRef = this.dialog.open(AddAreaComponent, {
       width: '600',
       data: 'this text'

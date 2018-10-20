@@ -20,9 +20,12 @@ export class AreaMasterService {
     console.log(ut);
     const body: AreaMaster = {
       areaId: ut.areaId,
-      areaName : ut.areaName
-   
+      areaName : ut.areaName,
+      cityId : ut.cityId,
+      cityMaster : ut.cityMaster
     }
+    this.selectArea=null;
+
     return this.http.post<AreaMaster[]>('http://localhost:64597/api/areaMaster', body);
   }
   getAreaDataList(): Observable<AreaMaster[]> {

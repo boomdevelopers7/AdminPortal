@@ -4,7 +4,7 @@
       
     <div class="col-md-6">
     <label>Unit name</label>
-      <input name="unitName" class="form-control" placeholder="Unit Name" #unitName="ngModel" [(ngModel)]="unitService.selectUnit.unitName" required pattern="[a-zA-Z][a-zA-Z]+"> 
+      <input name="unitName" class="form-control" placeholder="Unit Name" #unitName="ngModel" [(ngModel)]="unitService.selectUnit.unitName" required pattern="[a-zA-Z ]+"> 
       <div *ngIf="unitName?.touched" class=" alert-danger">
         <div *ngIf="unitName.errors?.required">
          Name is required
@@ -16,7 +16,7 @@
     </div>
       <div class="col-md-6">
       <label>Unit Description</label>
-        <input name="unitDescription" class="form-control" placeholder="Description" #unitDescription="ngModel" [(ngModel)]="unitService.selectUnit.unitDescription" required pattern="[a-zA-Z][a-zA-Z]+"> 
+        <input name="unitDescription" class="form-control" placeholder="Description" #unitDescription="ngModel" [(ngModel)]="unitService.selectUnit.unitDescription" required pattern="[a-zA-Z ]+"> 
     <div *ngIf="unitDescription?.touched" class=" alert-danger">
         <div *ngIf="unitDescription.errors?.required">
          Description is required

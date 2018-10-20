@@ -5,7 +5,7 @@
       <div class="col-md-6">
       <label>Type name</label>
         <input name="typeName" class="form-control" #typeName="ngModel" [(ngModel)]="typemasterService.selectType.typeName"
-          placeholder="Type Name" required pattern="[a-zA-Z][a-zA-Z]+">
+          placeholder="Type Name" required pattern="[a-zA-Z ]+">
         <div *ngIf="typeName?.touched" class=" alert-danger">
         <div *ngIf="typeName.errors?.required">
          Type name is required
@@ -18,7 +18,7 @@
       <div class="col-md-6">
       <label>Type description</label>
         <input name="typeDescription" class="form-control" #typeDescription="ngModel" [(ngModel)]="typemasterService.selectType.typeDescription"
-          placeholder="Type Description" required pattern="[a-zA-Z][a-zA-Z]+">
+          placeholder="Type Description" required pattern="[a-zA-Z ]+">
           <div *ngIf="typeDescription?.touched" class=" alert-danger">
         <div *ngIf="typeDescription.errors?.required">
          Type name is required

@@ -4,7 +4,7 @@
      
    <div class="col-md-6">
    <label>City name</label>
-     <input name="cityName" class="form-control" placeholder="city Name" #cityName="ngModel" [(ngModel)]="cityService.selectcity.cityName" required pattern="[a-zA-Z][a-zA-Z]+"> 
+     <input name="cityName" class="form-control" placeholder="city Name" #cityName="ngModel" [(ngModel)]="cityService.selectcity.cityName" required pattern="[a-zA-Z ]+"> 
      <div *ngIf="cityName?.touched" class=" alert-danger">
         <div *ngIf="cityName.errors?.required">
          City name is required
