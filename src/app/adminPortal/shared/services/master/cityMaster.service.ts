@@ -23,7 +23,7 @@ export class cityMasterService {
       cityName: ut.cityName,
     }
     this.selectcity=null;
-    return this.http.post<cityMaster[]>('http://localhost:64597/api/cityMaster', body);
+    return this.http.post<cityMaster[]>('http://localhost:64597/api/cityMaster',ut);
   }
   getcityDataList(): Observable<cityMaster[]> {
     return this.http.get<cityMaster[]>('http://localhost:64597/api/cityMaster');

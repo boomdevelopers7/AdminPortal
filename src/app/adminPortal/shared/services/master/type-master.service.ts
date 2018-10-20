@@ -24,6 +24,8 @@ export class TypeMasterService {
       typeDescription : ut.typeDescription
    
     }
+    this.selectType=null;
+
     return this.http.post<TypeMaster[]>('http://localhost:64597/api/typeMaster', body);
   }
   getTypeDataList(): Observable<TypeMaster[]> {

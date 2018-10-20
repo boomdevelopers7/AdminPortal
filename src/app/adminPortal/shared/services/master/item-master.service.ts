@@ -29,6 +29,8 @@ export class ItemMasterService {
       typeId : ut.typeId,
       typeMaster : ut.typeMaster
     }
+    this.selectItem=null;
+
     return this.http.post<ItemMaster[]>('http://localhost:64597/api/itemMaster', body);
   }
   getItemDataList(): Observable<ItemMaster[]> {
