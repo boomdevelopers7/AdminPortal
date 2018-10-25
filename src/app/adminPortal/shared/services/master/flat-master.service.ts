@@ -7,33 +7,34 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class FlatMasterService {
- 
+  
   dataList: Observable<FlatMaster[]>;
   selectFlat: FlatMaster;
   constructor(private http: HttpClient) { }
-
   loadData(): Observable<FlatMaster[]> {
-    const url = "http://localhost:64597/api/flatMasters";
+    const url = "http://localhost:64597/api/flatMaster";
     this.dataList = this.http.get<FlatMaster[]>(url);
     return this.http.get<FlatMaster[]>(url);
   }
-  postflatMaster(ft: FlatMaster):
+  postflat(ut: FlatMaster):
    Observable<FlatMaster[]> {
-    console.log(ft);
+    console.log(ut);
     const body: FlatMaster = {
-      flatId: ft.flatId,
-      flatNo : ft.flatNo,
-      societyId: ft.societyId,
-      SocietyMaster : ft.SocietyMaster
+      flatId: ut.flatId,
+      flatNo: ut.flatNo,
+     
       
-   
+      societyId : ut.societyId,
+      societyMaster : ut.societyMaster
     }
-    return this.http.post<FlatMaster[]>('http://localhost:64597/api/flatMasters', body);
+    this.selectFlat=null;
+
+    return this.http.post<FlatMaster[]>('http://localhost:64597/api/flatMaster', body);
   }
   getFlatDataList(): Observable<FlatMaster[]> {
-    return this.http.get<FlatMaster[]>('http://localhost:64597/api/flatMasters');
+    return this.http.get<FlatMaster[]>('http://localhost:64597/api/flatMaster');
   }
-  Delete(ft: FlatMaster) {
-    return this.http.delete<FlatMaster[]>('http://localhost:64597/api/flatMasters/' + ft.flatId);
+  Delete(ut: FlatMaster) {
+    return this.http.delete<FlatMaster[]>('http://localhost:64597/api/flatMaster/' + ut.flatId);
   }
 }

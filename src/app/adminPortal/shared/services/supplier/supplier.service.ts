@@ -12,7 +12,7 @@ export class SupplierService {
   selectSupplier : Supplier;
 
 loadData():Observable<Supplier[]>{
-    const url='http://localhost:64597/api/supplierMasters';
+    const url='http://localhost:64597/api/supplierMaster';
     this.dataList=this.http.get<Supplier[]>(url);
      return this.http.get<Supplier[]>(url);
   }
@@ -26,15 +26,18 @@ loadData():Observable<Supplier[]>{
       supMobNo2:ut.supMobNo2,
       supPincode:ut.supPincode
           }
-  return this.http.post<Supplier[]>('http://localhost:64597/api/supplierMasters', body);
+
+    this.selectSupplier=null;
+
+  return this.http.post<Supplier[]>('http://localhost:64597/api/supplierMaster', body);
   }
 
   getUnitDataList():Observable<Supplier[]>{
-    return this.http.get<Supplier[]>('http://localhost:64597/api/supplierMasters');
+    return this.http.get<Supplier[]>('http://localhost:64597/api/supplierMaster');
   }
   Delete( ut : Supplier){
    
-    return this.http.delete<Supplier[]>('http://localhost:64597/api/supplierMasters/'+ut.supId );
+    return this.http.delete<Supplier[]>('http://localhost:64597/api/supplierMaster/'+ut.supId );
    //return null;
   }
 

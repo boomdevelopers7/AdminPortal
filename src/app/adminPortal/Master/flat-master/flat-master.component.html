@@ -1,4 +1,6 @@
+
 <button  (click)="onAddDialog()" type="submit" class="btn btn-primary btn-lg">&nbsp;<i class="fas fa-plus-circle"></i>&nbsp; Add &nbsp;</button>
+
 <div class="search-box">
   <input matInput type="text" matTooltip="Search Record" (keyup)="applyFilter($event.target.value)" class="search-text" placeholder="Search">
   <a class="search-btn">
@@ -6,11 +8,10 @@
   </a>
 </div>
 
-
 <mat-table [dataSource]="dataSource" matSort>
 
   <ng-container matColumnDef="flatId">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Flat Id</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>No</mat-header-cell>
     <mat-cell *matCellDef=" let item">{{item.flatId}}</mat-cell>
   </ng-container>
 
@@ -18,15 +19,17 @@
     <mat-header-cell *matHeaderCellDef mat-sort-header>Flat Number</mat-header-cell>
     <mat-cell class="itemName-cell" *matCellDef=" let item">{{item.flatNo}}</mat-cell>
   </ng-container>
+ 
 
-  <ng-container matColumnDef="societyName">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Society Name </mat-header-cell>
+  <ng-container matColumnDef="society">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Society</mat-header-cell>
     <mat-cell *matCellDef=" let item">{{item.societyMaster.societyName}}</mat-cell>
   </ng-container>
+   
 
-    <ng-container matColumnDef="update">
+  <ng-container matColumnDef="update">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>
-    <mat-cell *matCellDef=" let item"  matTooltip="Update Record" (click)="showForEdit(item)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></mat-cell>
+    <mat-cell *matCellDef=" let item"  matTooltip="Update Record" (click)="onUpdateDialog(item)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="delete">

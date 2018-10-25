@@ -13,7 +13,7 @@ export class CustomerMasterService {
   constructor(private http: HttpClient) { }
 
   loadData(): Observable<CustomerMaster[]> {
-    const url = "http://localhost:64597/api/customerMasters";
+    const url = "http://localhost:64597/api/customerMaster";
     this.dataList = this.http.get<CustomerMaster[]>(url);
     return this.http.get<CustomerMaster[]>(url);
   }
@@ -24,24 +24,24 @@ export class CustomerMasterService {
       custId: ft.custId,
       custName : ft.custName,
       cityId : ft.cityId,
+      cityMaster : ft.cityMaster,
       areaId : ft.areaId,
+      areaMaster : ft.areaMaster,
       societyId : ft.societyId,
-      custMobNo1 : ft.custMobNo1,
+      societyMaster : ft.societyMaster,
+      flatId: ft.flatId,
+      flatMaster : ft.flatMaster,
+      custMobNo : ft.custMobNo,
       custMobNo2 : ft.custMobNo2,
       custGeoLocation : ft.custGeoLocation,
-
-      flatId: ft.flatId,
-      FlatMaster : ft.FlatMaster
-      
-   
     }
-    return this.http.post<CustomerMaster[]>('http://localhost:64597/api/customerMasters', body);
+    return this.http.post<CustomerMaster[]>('http://localhost:64597/api/customerMaster', body);
   }
   getCustomerDataList(): Observable<CustomerMaster[]> {
-    return this.http.get<CustomerMaster[]>('http://localhost:64597/api/customerMasters');
+    return this.http.get<CustomerMaster[]>('http://localhost:64597/api/customerMaster');
   }
   Delete(ft: CustomerMaster) {
-    return this.http.delete<CustomerMaster[]>('http://localhost:64597/api/customerMasters/' + ft.custId);
+    return this.http.delete<CustomerMaster[]>('http://localhost:64597/api/customerMaster/' + ft.custId);
   }
 }
 

@@ -1,9 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef, Inject } from '@angular/core';
-import { FlatMasterService } from '../../../shared/services/master/flat-master.service';
-import { SocietyMasterService } from '../../../shared/services/master/society-master.service';
-import { MatSnackBar, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { FlatMasterService } from 'src/app/adminPortal/shared/services/master/flat-master.service';
+import { SocietyMasterService } from 'src/app/adminPortal/shared/services/master/society-master.service';
+import { MatSnackBar, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router';
-import { SocietyMaster } from '../../../shared/model/master/society-master';
+import { SocietyMaster } from 'src/app/adminPortal/shared/model/master/society-master';
 import { NgForm } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 
@@ -12,14 +12,13 @@ import { isEmptyObject } from 'jquery';
   templateUrl: './add-flat.component.html',
   styleUrls: ['./add-flat.component.css']
 })
-
-
 export class AddFlatComponent implements OnInit {
-  constructor(private flatMasterService: FlatMasterService, 
-    private societyService: SocietyMasterService,public snackBar: MatSnackBar,
+  constructor(private flatmasterService: FlatMasterService, 
+    private societymasterService : SocietyMasterService,
+    public snackBar: MatSnackBar,
     private router: Router, private changeDetectorRefs: ChangeDetectorRef,
     public thisdialogRef: MatDialogRef<AddFlatComponent>, @Inject(MAT_DIALOG_DATA) public data: string) {
-    this.societyService.getSocietyDataList().subscribe(data => this.societies = data);
+    this. societymasterService.getSocietyDataList().subscribe(data => this.socities = data);
   }
  
   
@@ -31,28 +30,24 @@ export class AddFlatComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
   }
-  societies: SocietyMaster[];
+  socities: SocietyMaster[];
   selectSociety: number;
-
-  
-
   resetForm(form?: NgForm) {
     if (form != null)
       form.reset();
-    if (isEmptyObject(this.flatMasterService.selectFlat)) {
-      this.flatMasterService.selectFlat = {
-        flatId: 0,
+    if (isEmptyObject(this.flatmasterService.selectFlat)) {
+      this.flatmasterService.selectFlat = {
+        flatId:0,
         flatNo: 0,
         societyId : null,
-        SocietyMaster : null
+        societyMaster : null
       }
     }
   }
   msg: string = null;
   onSubmit(form: NgForm) {
-    this.flatMasterService.postflatMaster(form.value)
+    this.flatmasterService.postflat(form.value)
       .subscribe(data => {
-        this.ngOnInit();
         this.msg = 'success';
         this.changeDetectorRefs.detectChanges();
         this.resetForm(form);
@@ -72,4 +67,3 @@ export class AddFlatComponent implements OnInit {
 
   }
 }
-

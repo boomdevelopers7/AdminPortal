@@ -20,16 +20,17 @@ declare var $:any;
   styleUrls: ['./add-customer.component.css']
 })
 export class AddCustomerComponent implements OnInit {
-  constructor(private customerMasterService: CustomerMasterService,private cityService : cityMasterService, private areaService : AreaMasterService,
-    private societyService  : SocietyMasterService,
-    private flatService: FlatMasterService,public snackBar: MatSnackBar,
+  constructor(private customermasterService: CustomerMasterService, 
+    private citymasterService : cityMasterService,
+    private areamasterService : AreaMasterService,
+    private SocietyMasterService : SocietyMasterService,
+    private flatmasterService : FlatMasterService,public snackBar: MatSnackBar,
     private router: Router, private changeDetectorRefs: ChangeDetectorRef,
     public thisdialogRef: MatDialogRef<AddCustomerComponent>, @Inject(MAT_DIALOG_DATA) public data: string) {
-      this.cityService.getcityDataList().subscribe(data => this.cities = data);
-      this.areaService.getAreaDataList().subscribe(data => this.areas = data);
-      this.societyService.getSocietyDataList().subscribe(data => this.societis = data);
-      this.flatService.getFlatDataList().subscribe(data => this.flats = data);
-
+    this.citymasterService. getcityDataList().subscribe(data => this.cities = data);
+    this.areamasterService. getAreaDataList().subscribe(data => this.areas = data);
+    this.SocietyMasterService. getSocietyDataList().subscribe(data => this.societies = data);
+    this.flatmasterService. getFlatDataList().subscribe(data => this.flats = data);
   }
  
   
@@ -41,42 +42,46 @@ export class AddCustomerComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
   }
+  cities: cityMaster[];
+  selectCity: number;
   
+  areas: AreaMaster[];
+  selectArea : number;
+
+  societies: SocietyMaster[];
+  selectSociety: number;
+
   flats: FlatMaster[];
-  selectFlat: number;
+  selectFlat : number;
+ 
 
-  areas : AreaMaster[];
-  selectArea:number;
-
-  cities : cityMaster[];
-  selectCity:number;
-
-  societis : SocietyMaster[];
-  selectSociety : number;
   resetForm(form?: NgForm) {
     if (form != null)
       form.reset();
-    if (isEmptyObject(this.customerMasterService.selectCustomer)) {
-      this.customerMasterService.selectCustomer = {
+    if (isEmptyObject(this.customermasterService.selectCustomer)) {
+      this.customermasterService.selectCustomer = {
         custId: 0,
         custName: '',
-        cityId : 0,
-        areaId:0,
-        societyId:0,
-        custMobNo1:'',
-        custMobNo2:'',
-        custGeoLocation:'',
-
+        cityId: null,
+        cityMaster : null,
+        areaId: null,
+        areaMaster : null,
+        societyId: null,
+        societyMaster : null,
         flatId : null,
-        FlatMaster : null
+        flatMaster : null,
+        custMobNo : '',
+        custMobNo2 : '',
+        custGeoLocation : ''
+
+
       }
     }
   }
   msg: string = null;
   onSubmit(form: NgForm) {
-    this.customerMasterService.postCustomerMaster(form.value)
+    this.customermasterService.postCustomerMaster(form.value)
       .subscribe(data => {
-        this.ngOnInit();
         this.msg = 'success';
         this.changeDetectorRefs.detectChanges();
         this.resetForm(form);
@@ -96,8 +101,3 @@ export class AddCustomerComponent implements OnInit {
 
   }
 }
-
-
-
-  
-  
