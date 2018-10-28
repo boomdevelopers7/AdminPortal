@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { adminService } from '../shared/services/admin.service';
 import { admin } from '../shared/services/admin.modal';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-login',
@@ -10,7 +11,7 @@ import { admin } from '../shared/services/admin.modal';
 })
 export class LoginComponent implements OnInit {
 admin : admin;
-  constructor(private adminService : adminService) { }
+  constructor(private adminService : adminService, public router: Router) { }
 
   ngOnInit() {
     this.resetForm();
@@ -27,11 +28,12 @@ adminPassword :''
   }
 
   onLogin(form : NgForm){
-    this.adminService.adminLogin(form.value)
-    .subscribe((data: any)=>{
-  if(data.statusText=="OK")
-    this.resetForm(form);
-    });
+    this.router.navigate(['/Admin']);
+  //   this.adminService.adminLogin(form.value)
+  //   .subscribe((data: any)=>{
+  // if(data.statusText=="OK")
+  //   this.resetForm(form);
+  //   });
     
   }
 }

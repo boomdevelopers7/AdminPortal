@@ -37,19 +37,12 @@ import { AddTypeComponent } from './adminPortal/Master/type-master/add-type/add-
 import { AddFlatComponent } from './adminPortal/Master/flat-master/add-flat/add-flat.component';
 import { CustomerMasterComponent } from './adminPortal/Master/customer-master/customer-master.component';
 import { AddCustomerComponent } from './adminPortal/Master/customer-master/add-customer/add-customer.component';
-
-const appRoutes: Routes=[
-  { path: 'app-unit-master', component: UnitMasterComponent },
-  { path: 'app-item-master', component: ItemMasterComponent },
-  { path: 'app-type-master', component: TypeMasterComponent },
-  { path: 'app-area-master', component: AreaMasterComponent },
-  { path: 'app-society-master', component: SocietyMasterComponent },
-  { path: 'app-city-master', component: cityMasterComponent },
-  { path: 'app-suplier-master', component: SupplierComponent },
-  { path: 'app-flat-master', component: FlatMasterComponent },
-  { path: 'app-customer-master', component: CustomerMasterComponent },
-  { path:'', redirectTo: 'app-menu', pathMatch: 'full' }
-]
+import { DashComponent } from './adminPortal/dash/dash.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from '@pluritech/auth-service';
+import { AuthGuard } from './auth.guard';
+import { AdminLayoutComponent } from './adminPortal/layout/admin-layout/admin-layout.component';
+import { SimpleLayoutComponent } from './adminPortal/layout/simple-layout/simple-layout.component';
 
 
 @NgModule({
@@ -79,7 +72,7 @@ const appRoutes: Routes=[
     AddSocietyComponent,
     AddFlatComponent,
     CustomerMasterComponent,
-    AddCustomerComponent
+    AddCustomerComponent,AdminLayoutComponent,SimpleLayoutComponent,DashComponent
   ],
   imports: [
     HttpModule,    
@@ -90,12 +83,13 @@ const appRoutes: Routes=[
 BrowserAnimationsModule,
 MatPaginatorModule,
 MatCardModule,
-    RouterModule.forRoot(appRoutes),
+AppRoutingModule,
+    RouterModule.forRoot([]),
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
     MatTooltipModule,
-    CommonModule,
+    CommonModule,   
     BrowserAnimationsModule, 
     ToastrModule.forRoot(),
     MatSnackBarModule 
@@ -115,8 +109,7 @@ MatCardModule,
     AddCustomerComponent
 
   ],
-  providers: [],
+  providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
